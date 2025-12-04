@@ -442,6 +442,25 @@ body {
   text-align: initial;
 }
 
+.pinterest-icon {
+  width: 32px;
+  height: 32px;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Optional: constrain inside container */
+.follow-us-right {
+  max-width: 150px; /* keeps the block from stretching too wide */
+}
+
+/* Responsive tweak: reduce icon size on larger screens */
+@media (min-width: 768px) {
+  .pinterest-icon {
+    width: 24px;
+    height: 24px;
+  }
+
   
 }
 </style>
