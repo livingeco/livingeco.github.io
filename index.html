@@ -400,11 +400,15 @@ body {
   animation: fadeInUp 1.6s ease-out forwards;
   }
   
-  .footer-social-icons a svg:hover {
-  fill: #000000; /* lighter green on hover */
-  transition: fill 0.3s ease;
+  .pinterest-icon {
+  width: 34px;
+  height: 34px;
+  transition: transform 0.3s ease;
 }
 
+.pinterest-link:hover .pinterest-icon {
+  transform: scale(1.2); /* zooms in by 20% */
+ }
   
 }
 </style>
