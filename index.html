@@ -400,15 +400,48 @@ body {
   animation: fadeInUp 1.6s ease-out forwards;
   }
   
-  .pinterest-icon {
+  /* Container: right align and vertical stack */
+.follow-us-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;   /* push the block to the right edge */
+  gap: 8px;                /* space between label and icon */
+  padding-top: 20px;
+}
+
+/* Label styling */
+.follow-us-label {
+  font-weight: 500;
+  font-size: 16px;
+  color: #4CAF50;          /* matches your eco-green */
+}
+
+/* Icon sizing and animation */
+.pinterest-icon {
   width: 32px;
   height: 32px;
+  display: inline-block;
   transition: transform 0.3s ease;
 }
 
+/* Hover zoom */
 .pinterest-link:hover .pinterest-icon {
-  transform: scale(1.2); /* zooms in by 20% */
- }
+  transform: scale(1.2);
+}
+
+/* Ensure parent row allows right alignment (if needed) */
+.wp-block-group.is-layout-flex,
+.wp-block-columns.is-layout-flex {
+  justify-content: space-between;  /* policies on the left, follow-us on the right */
+  align-items: center;
+}
+
+/* If your footer centers everything, this overrides that */
+.wp-block-group.alignfull,
+.wp-block-group.has-global-padding {
+  text-align: initial;
+}
+
   
 }
 </style>
@@ -760,15 +793,15 @@ body {
 </div>
 </div>
 </div>
-<div class="follow-us" style="display:flex; flex-direction:column; align-items:flex-end; padding-top:20px;">
-  <span style="font-weight:450; font-size:16px; color:#4CAF50; margin-bottom:8px;">
-    Follow us at:
-  </span>
-  <a href="https://www.pinterest.com/mridulchauhan/" target="_blank" aria-label="Pinterest" class="pinterest-link">
-    <img src="https://www.svgrepo.com/show/475670/pinterest-color.svg" 
-         alt="Pinterest" class="pinterest-icon">
+<div class="follow-us-right">
+  <span class="follow-us-label">Follow us at:</span>
+  <a href="https://www.pinterest.com/YourHandle/" target="_blank" aria-label="Pinterest" class="pinterest-link">
+    <img class="pinterest-icon" 
+         src="https://www.svgrepo.com/show/475670/pinterest-color.svg" 
+         alt="Pinterest">
   </a>
 </div>
+
 
 
 
