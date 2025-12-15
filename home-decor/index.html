@@ -122,6 +122,134 @@ body {
   }
 }
 </style>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.site-header {
+  background-color: #e2c1c1;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: auto;
+  max-width: 30%;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.logo-img:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(139, 195, 74, 0.3); /* soft green glow */
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 400;
+  font-size: 1.15rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #2e7d32;
+}
+
+.contact-btn {
+  background-color: #8bc34a;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 400;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3); /* permanent shadow */
+  display: inline-block; /* ensures shadow renders properly */
+  transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #689f38;
+}
+
+/* === Force mobile header: center logo + menu === */
+@media (max-width: 768px) {
+  /* make header stack and center everything */
+  .site-header .header-container,
+  .site-header > .header-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 0.8rem !important;
+  }
+
+  /* ensure logo block centers the image */
+  .site-header .logo {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    order: -1 !important;     /* place logo above links */
+    margin-bottom: 0.2rem !important;
+  }
+  .site-header .logo-img,
+  .site-header .logo img {
+    display: block !important;
+    margin: 0 auto !important;
+    width: auto !important;
+    border-radius: 50% !important;
+  }
+
+  /* stack and center nav links */
+  .site-header .nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .site-header .nav-links a {
+    display: inline-block !important;
+    width: auto !important;
+    padding: 4px 8px !important;
+  }
+
+  /* center the contact button */
+  .site-header .contact-btn {
+    margin: 8px auto 0 auto !important;
+    display: inline-block !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
