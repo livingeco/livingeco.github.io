@@ -8,140 +8,117 @@
 
 <style>
 :root {
-  --green: #2d7a46;
-  --soft-green: #eaf4ee;
-  --text: #222;
-  --muted: #666;
-  --bg: #f4f6f5;
-}
-
-* {
-  box-sizing: border-box;
+  --green:#2d7a46;
+  --bg:#f4f6f5;
+  --card:#ffffff;
+  --text:#222;
 }
 
 body {
-  margin: 0;
-  font-family: "Georgia", serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.8;
+  margin:0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
 }
 
-/* ===== HERO ===== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  background:#fff;
+}
+
+/* HERO */
 .hero {
-  background: #000;
-  position: relative;
+  position:relative;
 }
 
 .hero img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  opacity: 0.75;
+  width:100%;
+  height:420px;
+  object-fit:cover;
 }
 
-.hero-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+.hero h1 {
+  position:absolute;
+  bottom:30px;
+  left:30px;
+  right:30px;
+  color:#fff;
+  font-size:2.4rem;
+  background:rgba(0,0,0,0.45);
+  padding:16px 20px;
+  border-radius:12px;
 }
 
-.hero-text h1 {
-  color: #fff;
-  font-size: 2.6rem;
-  max-width: 900px;
+/* CONTENT */
+.content {
+  padding:40px 32px;
 }
 
-/* ===== CONTENT ===== */
-.container {
-  max-width: 900px;
-  background: #fff;
-  margin: -60px auto 60px;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+.content h2 {
+  color:var(--green);
+  margin-top:48px;
 }
 
-.container p {
-  color: var(--muted);
-  font-size: 1.05rem;
-}
-
-h2 {
-  color: var(--green);
-  margin-top: 50px;
-}
-
-/* ===== PRODUCT CARD ===== */
+/* PRODUCT CARD */
 .product-card {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 20px;
-  background: var(--soft-green);
-  border-radius: 14px;
-  padding: 20px;
-  margin: 25px 0;
-  align-items: center;
+  display:flex;
+  gap:20px;
+  background:var(--card);
+  border-radius:14px;
+  padding:20px;
+  margin-top:18px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.08);
 }
 
 .product-card img {
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
+  width:140px;
+  height:140px;
+  object-fit:cover;
+  border-radius:12px;
+  flex-shrink:0;
 }
 
-.product-card h3 {
-  margin: 0 0 6px;
-  color: var(--green);
+.product-info h3 {
+  margin:0 0 6px 0;
 }
 
-.product-card p {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-/* ===== BUTTON ===== */
 .btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 18px;
-  background: var(--green);
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 0.9rem;
+  display:inline-block;
+  margin-top:10px;
+  background:var(--green);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:24px;
+  text-decoration:none;
+  font-size:0.9rem;
 }
 
 .btn:hover {
-  background: #256639;
+  background:#256639;
 }
 
-/* ===== FOOTER LINK ===== */
+/* FOOTER LINK */
 .back-link {
-  display: inline-block;
-  margin-top: 40px;
-  color: var(--green);
-  text-decoration: none;
-  font-weight: bold;
+  display:inline-block;
+  margin-top:50px;
+  color:var(--green);
+  text-decoration:none;
+  font-weight:600;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 700px) {
-  .hero-text h1 {
-    font-size: 2rem;
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1 {
+    font-size:1.7rem;
   }
-
-  .container {
-    padding: 25px;
-  }
-
   .product-card {
-    grid-template-columns: 1fr;
-    text-align: center;
+    flex-direction:column;
+  }
+  .product-card img {
+    width:100%;
+    height:220px;
   }
 }
 </style>
@@ -149,65 +126,147 @@ h2 {
 
 <body>
 
-<!-- HERO IMAGE -->
-<section class="hero">
-  <img src="/assets/images/eco-friendly-home-decor-hero.jpg" alt="Eco Friendly Home Decor">
-  <div class="hero-text">
-    <h1>10 Eco-Friendly Home Décor Ideas for Small Spaces</h1>
-  </div>
-</section>
-
-<!-- MAIN CONTENT -->
 <div class="container">
 
+<!-- HERO IMAGE -->
+<div class="hero">
+  <img src="/assets/images/eco-home-decor-hero.jpg" alt="Eco Friendly Home Decor">
+  <h1>10 Eco-Friendly Home Décor Ideas for Small Spaces</h1>
+</div>
+
+<div class="content">
+
 <p>
-Small spaces can feel airy, stylish, and peaceful when decorated mindfully.
-These eco-friendly décor ideas help you reduce waste while creating a beautiful home.
+Small spaces can look beautiful and feel fresh when decorated with eco-friendly décor.
+These ideas are simple, affordable, and perfect for creating a greener home without sacrificing style.
 </p>
 
 <!-- ITEM 1 -->
 <h2>1. Bamboo Floating Shelves</h2>
-<p>Renewable bamboo shelves save space while adding warmth and natural texture.</p>
+<p>Bamboo is a fast-growing, renewable material that adds warmth while saving space.</p>
 
 <div class="product-card">
-  <img src="/assets/images/bamboo-shelf.jpg" alt="Bamboo Floating Shelves">
-  <div>
-    <h3>Bamboo Floating Shelves</h3>
-    <p>Minimalist, durable, and ideal for plants or décor.</p>
-    <a class="btn" href="YOUR-AMAZON-LINK" target="_blank">View on Amazon</a>
+  <img src="/assets/images/bamboo-shelf.jpg" alt="Bamboo Floating Shelf">
+  <div class="product-info">
+    <h3>Recommended: Bamboo Floating Shelves</h3>
+    <p>Minimalist shelves perfect for plants and décor.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
   </div>
 </div>
 
 <!-- ITEM 2 -->
 <h2>2. Recycled Cotton Throw Blankets</h2>
-<p>Soft, cozy throws made from repurposed fabric.</p>
+<p>Adds comfort and texture using repurposed materials.</p>
 
 <div class="product-card">
-  <img src="/assets/images/recycled-throw.jpg" alt="Recycled Cotton Throw">
-  <div>
-    <h3>Recycled Cotton Throw Blanket</h3>
-    <p>Sustainable comfort for couches and beds.</p>
-    <a class="btn" href="YOUR-AMAZON-LINK" target="_blank">View on Amazon</a>
+  <img src="/assets/images/cotton-throw.jpg" alt="Recycled Cotton Blanket">
+  <div class="product-info">
+    <h3>Recommended: Recycled Cotton Throw</h3>
+    <p>Soft, breathable, and eco-conscious.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
   </div>
 </div>
 
 <!-- ITEM 3 -->
 <h2>3. Eco-Friendly Indoor Plants</h2>
-<p>Plants purify air and make small rooms feel alive.</p>
+<p>Plants purify air and visually enlarge small rooms.</p>
 
 <div class="product-card">
   <img src="/assets/images/snake-plant.jpg" alt="Snake Plant">
-  <div>
-    <h3>Snake Plant</h3>
-    <p>Low maintenance and excellent air purifier.</p>
-    <a class="btn" href="YOUR-AMAZON-LINK" target="_blank">View on Amazon</a>
+  <div class="product-info">
+    <h3>Recommended: Snake Plant</h3>
+    <p>Low maintenance and air-purifying.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
   </div>
 </div>
 
-<!-- Repeat same pattern for items 4–10 -->
+<h2>4. LED String Lights</h2>
+<p>Energy-saving LED lights create a cozy, aesthetic vibe without using much electricity. They are perfect for walls, shelves, and beds.</p>
 
-<a class="back-link" href="/index.html">← Back to Home</a>
+<div class="product-card">
+  <img src="/assets/images/snake-plant.jpg" alt="Snake Plant">
+  <div class="product-info">
+    <h3>Recommended Product: LED String Lights</h3>
+    <p>Warm, cozy glow for bedrooms and living rooms.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+  </div>
+</div>
 
+<h2>5. Jute or Cotton Rugs</h2>
+<p>Natural fiber rugs make rooms feel warm and grounded while being highly sustainable.</p>
+
+<div class="product-card">
+  <img src="/assets/images/snake-plant.jpg" alt="Snake Plant">
+  <div class="product-info">
+    <h3>Recommended Product: Jute Rug</h3>
+    <p>Durable and eco-friendly, ideal for small areas.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+  </div>
+</div>
+
+<h2>6. Recycled Glass Vases</h2>
+<p>Use them for fresh flowers or dried arrangements. Recycled glass gives a unique look to any shelf or table.</p>
+
+<div class="product-card">
+  <img src="/assets/images/snake-plant.jpg" alt="Snake Plant">
+  <div class="product-info">
+    <h3>Recommended Product: Recycled Glass Vase</h3>
+    <p>Stylish, modern, and made from 100% recycled glass.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+  </div>
+</div>
+
+<h2>7. Eco-Friendly Wall Art Prints</h2>
+<p>Choose prints made with soy-based ink or printed on recycled paper for a sustainable wall décor option.</p>
+
+<div class="product-card">
+  <img src="/assets/images/snake-plant.jpg" alt="Snake Plant">
+  <div class="product-info">
+    <h3>Recommended Product: Eco-Friendly Wall Art Prints</h3>
+    <p>Minimalist and nature-themed designs.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+  </div>
+</div>
+
+<h2>8. Cork Bulletin Boards</h2>
+<p>Cork is renewable and biodegradable. Cork boards help you organize reminders, photos, or vision boards in small spaces.</p>
+
+<div class="product-card">
+  <img src="/assets/images/snake-plant.jpg" alt="Snake Plant">
+  <div class="product-info">
+    <h3>Recommended Product: Cork Bulletin Board</h3>
+    <p>Lightweight, natural, and perfect for workspace or bedroom.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+  </div>
+</div>
+
+<h2>9. Sustainable Storage Baskets</h2>
+<p>Jute, seagrass, and cotton baskets keep small rooms organized while being eco-friendly and stylish.</p>
+
+<div class="product-card">
+  <img src="/assets/images/snake-plant.jpg" alt="Snake Plant">
+  <div class="product-info">
+    <h3>Recommended Product: Seagrass Storage Basket</h3>
+    <p>Elegant and perfect for small apartments.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+  </div>
+</div>
+
+<h2>10. Natural Soy Candles</h2>
+<p>Soy candles burn cleaner than paraffin and create a calming environment in small rooms.</p>
+
+<div class="product-card">
+  <img src="/assets/images/snake-plant.jpg" alt="Snake Plant">
+  <div class="product-info">
+    <h3>Recommended Product: Soy Wax Candle</h3>
+    <p>Non-toxic and long-lasting aroma.</p>
+    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+  </div>
+</div>
+
+<a class="back-link" href="https://livingeco.github.io/index.html">← Back to Home</a>
+
+</div>
 </div>
 
 </body>
