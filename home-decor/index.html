@@ -252,6 +252,25 @@ body {
 }
 </style>
 
+<style>
+
+.pinterest-icon {
+  width: 34px;
+  height: 34px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;           /* smooths edges */
+  overflow: hidden;             /* hides any bleed */
+  backface-visibility: hidden; /* prevents flicker */
+  will-change: transform;       /* optimizes animation */
+}
+
+.pinterest-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle glow */
+}
+
+</style>
+
 </head>
 
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
