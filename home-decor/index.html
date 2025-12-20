@@ -158,83 +158,63 @@ body {
 }
 
 /* CONTENT */
-.content {
-  padding:40px 32px;
+/* PRODUCT BLOCK */
+.product-block {
+  margin: 70px 0;
 }
 
-.content h2 {
-  color:var(--green);
-  margin-top:48px;
-}
-
-/* PRODUCT CARD – ALTERNATING LAYOUT */
+/* PRODUCT CARD */
 .product-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  background: var(--card);
-  border-radius: 18px;
-  padding: 28px;
-  margin-top: 28px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
   align-items: center;
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 22px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
 }
 
-/* BIG PRODUCT IMAGE */
+/* IMAGE */
 .product-card img {
   width: 100%;
+  max-height: 360px;
   object-fit: contain;
-  padding: 18px;
-  border-radius: 16px;
+  border-radius: 18px;
 }
 
-/* EVEN ITEMS → IMAGE ON RIGHT */
-.product-card:nth-of-type(even) {
-  grid-template-columns: 1fr 1fr;
+/* TEXT */
+.product-info h2 {
+  margin-top: 0;
+  color: var(--green);
 }
 
-.product-card:nth-of-type(even) img {
+.product-info h3 {
+  margin-top: 14px;
+}
+
+/* ALTERNATE LEFT / RIGHT */
+.product-block:nth-child(even) .product-card {
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.product-block:nth-child(even) img {
   order: 2;
 }
 
-.product-card:nth-of-type(even) .product-info {
-  order: 1;
-}
-
-/* PRODUCT INFO */
-.product-info h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.product-info p {
-  margin: 0 0 12px;
-  color: #555;
-}
-
-/* CTA BUTTON */
-.btn {
-  display: inline-block;
-  background: var(--green);
-  color: #fff;
-  padding: 12px 26px;
-  border-radius: 28px;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-/* MOBILE – STACK NATURALLY */
+/* MOBILE */
 @media (max-width: 768px) {
   .product-card {
     grid-template-columns: 1fr;
+    text-align: center;
   }
 
   .product-card img {
-    height: 300px;
+    order: 0 !important;
+    max-height: 260px;
   }
 }
+
 
   .product-card:nth-of-type(even) img,
   .product-card:nth-of-type(even) .product-info {
@@ -460,30 +440,40 @@ These ideas are simple, affordable, and perfect for creating a greener home with
 </p>
 
 <!-- ITEM 1 -->
-<h2>1. Bamboo Floating Shelves</h2>
-<p>Bamboo is a fast-growing, renewable material that adds warmth while saving space.</p>
+<div class="product-block">
+  <div class="product-card">
+    <img src="https://livingeco.github.io/assets/images/bamboo_rack.png" alt="Bamboo Floating Shelf">
 
-<div class="product-card">
-  <img src="https://livingeco.github.io/assets/images/bamboo_rack.png" alt="Bamboo Floating Shelf">
-  <div class="product-info">
-    <h3>Recommended: Bamboo Floating Shelves</h3>
-    <p>Minimalist shelves perfect for plants and decor.</p>
-    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+    <div class="product-info">
+      <h2>1. Bamboo Floating Shelves</h2>
+      <p>Bamboo is a fast-growing, renewable material that adds warmth while saving space.</p>
+
+      <h3>Recommended: Bamboo Floating Shelves</h3>
+      <p>Minimalist shelves perfect for plants and decor.</p>
+
+      <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+    </div>
   </div>
 </div>
+
 
 <!-- ITEM 2 -->
-<h2>2. Recycled Cotton Throw Blankets</h2>
-<p>Adds comfort and texture using repurposed materials.</p>
+<div class="product-block">
+  <div class="product-card">
+    <img src="https://livingeco.github.io/assets/images/cozy_recycled_blanket.png" alt="Recycled Cotton Blanket">
 
-<div class="product-card">
-  <img src="https://livingeco.github.io/assets/images/cozy_recycled_blanket.png" alt="Recycled Cotton Blanket">
-  <div class="product-info">
-    <h3>Recommended: Recycled Cotton Throw</h3>
-    <p>Soft, breathable, and eco-conscious.</p>
-    <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+    <div class="product-info">
+      <h2>2. Recycled Cotton Throw Blankets</h2>
+      <p>Adds comfort and texture using repurposed materials.</p>
+
+      <h3>Recommended: Recycled Cotton Throw</h3>
+      <p>Soft, breathable, and eco-conscious.</p>
+
+      <a class="btn" href="YOUR-AMAZON-LINK-HERE" target="_blank">Buy on Amazon</a>
+    </div>
   </div>
 </div>
+
 
 <!-- ITEM 3 -->
 <h2>3. Eco-Friendly Indoor Plants</h2>
