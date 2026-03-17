@@ -454,6 +454,25 @@ body {
   opacity: 0.85;
 }
 </style>
+<style>
+.header-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.header-icon {
+  width: 24px;
+  height: 24px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.header-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+</style>
 
 </head>
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -462,6 +481,8 @@ body {
 <!-- HEADER (FULL WIDTH) -->
 <header class="site-header">
   <div class="header-container">
+
+    <!-- Logo -->
     <div class="logo">
       <a href="https://livingeco.github.io/index.html">
         <img src="https://livingeco.github.io/assets/images/cropped-a-modern-elegant-withouttext_JPG.jpg"
@@ -471,11 +492,32 @@ body {
       </a>
     </div>
 
-    <nav class="nav-links">
-      <a href="https://livingeco.github.io/index.html">Sustainable & Zero Waste Living</a>
-      <a href="https://livingeco.github.io/about-us/index.html">About Us</a>
-      <a href="mailto:cawdimaddi@gmail.com" class="contact-btn">Contact Us</a>
-    </nav>
+    <!-- Navigation + Social -->
+    <div style="display:flex; align-items:center; gap:20px;">
+
+      <nav class="nav-links">
+        <a href="https://livingeco.github.io/index.html">Sustainable & Zero Waste Living</a>
+        <a href="https://livingeco.github.io/about-us/index.html">About Us</a>
+        <a href="mailto:cawdimaddi@gmail.com" class="contact-btn">Contact Us</a>
+      </nav>
+
+      <!-- Social Icons -->
+      <div class="header-social">
+        
+        <!-- Pinterest -->
+        <a href="https://www.pinterest.com/mridulchauhan/" target="_blank" aria-label="Pinterest">
+          <img src="https://www.svgrepo.com/show/475670/pinterest-color.svg" class="header-icon">
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/quietgreenlife" target="_blank" aria-label="Instagram">
+          <img src="https://www.svgrepo.com/show/452229/instagram-1.svg" class="header-icon">
+        </a>
+
+      </div>
+
+    </div>
+
   </div>
 </header>
 
