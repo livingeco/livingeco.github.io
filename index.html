@@ -257,59 +257,65 @@ body {
   background-color: #689f38;
 }
 
-/* === Force mobile header: center logo + menu === */
+/* ===== FINAL MOBILE HEADER FIX ===== */
 @media (max-width: 768px) {
-  /* make header stack and center everything */
-  .site-header .header-container,
-  .site-header > .header-container {
+
+  /* Stack whole header */
+  .header-container {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
     text-align: center !important;
-    gap: 0.8rem !important;
+    gap: 14px !important;
   }
 
-  /* ensure logo block centers the image */
-  .site-header .logo {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    order: -1 !important;     /* place logo above links */
-    margin-bottom: 0.2rem !important;
-  }
-  .site-header .logo-img,
-  .site-header .logo img {
-    display: block !important;
-    margin: 0 auto !important;
-    width: auto !important;
-    border-radius: 50% !important;
+  /* Logo on top */
+  .logo {
+    order: -1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  /* stack and center nav links */
-  .site-header .nav-links {
+  /* 🔥 CONTROL THE RIGHT SECTION (KEY FIX) */
+  .header-container > div:last-child {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    gap: 0.6rem !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
+    gap: 10px !important;
+    width: 100%;
   }
 
-  .site-header .nav-links a {
-    display: inline-block !important;
-    width: auto !important;
-    padding: 4px 8px !important;
+  /* Nav links stacked */
+  .nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
   }
 
-  /* center the contact button */
-  .site-header .contact-btn {
-    margin: 8px auto 0 auto !important;
-    display: inline-block !important;
+  /* Contact button centered */
+  .contact-btn {
+    margin: 6px auto !important;
+    display: block !important;
   }
+
+  /* 🔥 FORCE ICONS BELOW BUTTON */
+  .header-social {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    margin-top: 6px !important;
+    width: 100%;
+  }
+
+  /* Prevent inline weirdness */
+  .header-social a {
+    display: flex !important;
+    align-items: center !important;
+  }
+
 }
 </style>
 
