@@ -469,6 +469,48 @@ body {
   filter: brightness(0) saturate(100%) invert(38%) sepia(12%) saturate(600%) hue-rotate(70deg); /* subtle green */
 }
 </style>
+<style>
+/* FIX RIGHT SIDE (NAV + BUTTON + ICONS) */
+.header-container > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Keep nav links in one line */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 0;
+}
+
+/* Align button properly */
+.contact-btn {
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Social icons alignment */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 6px;
+}
+
+/* Remove any weird inline spacing */
+.header-social a {
+  display: flex;
+  align-items: center;
+}
+
+/* EXTRA: fix tiny dash issue if still exists */
+.header-social a::before,
+.header-social a::after {
+  content: none !important;
+}
+</style>
 
 </head>
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
