@@ -194,82 +194,67 @@ body {
   font-family: 'Nunito', ui-sans-serif;
 }
 
-/* HEADER BASE */
 .site-header {
-  background: #e6cfcf; /* your soft tone */
-  padding: 14px 40px;
+  background-color: #e2c1c1;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* MAIN CONTAINER */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* LOGO */
-.logo-img {
-  height: 42px;
+.logo img {
+  height: auto;
+  max-width: 30%;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
-/* RIGHT SECTION */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 28px;
+.logo-img:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(139, 195, 74, 0.3); /* soft green glow */
 }
 
-/* NAVIGATION */
+
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 2rem;
+  align-items: center;
 }
 
 .nav-links a {
   text-decoration: none;
-  font-size: 15px;
-  color: #2f3a30;
-  font-weight: 500;
-  transition: 0.3s ease;
+  color: #444;
+  font-weight: 400;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  opacity: 0.7;
+  color: #2e7d32;
 }
 
-/* CONTACT BUTTON */
 .contact-btn {
-  background: #8bc34a;
-  color: white;
-  padding: 10px 22px;
-  border-radius: 999px;
+  background-color: #8bc34a;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 400;
+  font-size: 0.95rem;
   text-decoration: none;
-  font-size: 14px;
-  transition: 0.3s ease;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3); /* permanent shadow */
+  display: inline-block; /* ensures shadow renders properly */
+  transition: background-color 0.3s ease;
 }
 
 .contact-btn:hover {
-  background: #7ab03f;
-}
-
-/* SOCIAL ICONS */
-.header-social {
-  display: flex;
-  gap: 14px;
-}
-
-.header-icon {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0);
-  opacity: 0.75;
-  transition: all 0.3s ease;
-}
-
-.header-icon:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  filter: brightness(0) saturate(100%) invert(38%) sepia(12%) saturate(600%) hue-rotate(70deg);
+  background-color: #689f38;
 }
 
 /* === Force mobile header: center logo + menu === */
@@ -325,48 +310,6 @@ body {
     margin: 8px auto 0 auto !important;
     display: inline-block !important;
   }
-}
-</style>
-<style>
-/* ===== MOBILE HEADER ===== */
-@media (max-width: 768px) {
-
-  .site-header {
-    padding: 12px 18px;
-  }
-
-  .header-container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  /* Reduce logo size */
-  .logo-img {
-    height: 34px;
-  }
-
-  /* Hide full navigation (too crowded for mobile) */
-  .nav-links {
-    display: none;
-  }
-
-  /* Keep only button + icons */
-  .header-right {
-    gap: 14px;
-  }
-
-  /* Smaller contact button */
-  .contact-btn {
-    padding: 8px 14px;
-    font-size: 13px;
-  }
-
-  /* Smaller icons */
-  .header-icon {
-    width: 18px;
-    height: 18px;
-  }
-
 }
 </style>
 
@@ -494,6 +437,38 @@ body {
     display:block;
 }
 </style>
+<style>
+.footer-instagram {
+  margin-top: 15px;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+</style>
+<style>
+.header-icon {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0); /* makes icon black */
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.header-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: brightness(0) saturate(100%) invert(38%) sepia(12%) saturate(600%) hue-rotate(70deg); /* subtle green */
+}
+</style>
 
 </head>
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -513,26 +488,28 @@ body {
       </a>
     </div>
 
-    <!-- Right Section -->
-    <div class="header-right">
+    <!-- Navigation + Social -->
+    <div style="display:flex; align-items:center; gap:20px;">
 
-      <!-- Navigation -->
       <nav class="nav-links">
-        <a href="https://livingeco.github.io/index.html">Sustainable Living</a>
-        <a href="https://livingeco.github.io/about-us/index.html">About</a>
+        <a href="https://livingeco.github.io/index.html">Sustainable & Zero Waste Living</a>
+        <a href="https://livingeco.github.io/about-us/index.html">About Us</a>
+        <a href="mailto:cawdimaddi@gmail.com" class="contact-btn">Contact Us</a>
       </nav>
-
-      <!-- Contact Button -->
-      <a href="mailto:cawdimaddi@gmail.com" class="contact-btn">Contact Us</a>
 
       <!-- Social Icons -->
       <div class="header-social">
-        <a href="https://www.pinterest.com/mridulchauhan/" target="_blank">
+        
+        <!-- Pinterest -->
+        <a href="https://www.pinterest.com/mridulchauhan/" target="_blank" aria-label="Pinterest">
           <img src="https://www.svgrepo.com/show/512664/pinterest-180.svg" class="header-icon">
         </a>
-        <a href="https://www.instagram.com/quietgreenlife" target="_blank">
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/quietgreenlife" target="_blank" aria-label="Instagram">
           <img src="https://www.svgrepo.com/show/357908/instagram.svg" class="header-icon">
         </a>
+
       </div>
 
     </div>
