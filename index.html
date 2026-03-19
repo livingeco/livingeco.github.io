@@ -750,25 +750,7 @@ body {
 }
 </style>
 
-<style>
 
-.pinterest-icon {
-  width: 34px;
-  height: 34px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 50%;           /* smooths edges */
-  overflow: hidden;             /* hides any bleed */
-  backface-visibility: hidden; /* prevents flicker */
-  will-change: transform;       /* optimizes animation */
-}
-
-.pinterest-icon:hover {
-  transform: scale(1.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle glow */
-}
-
-
-</style>
 
 <style>
 .full-width-banner{
@@ -783,23 +765,389 @@ body {
     display:block;
 }
 </style>
+
 <style>
-.footer-instagram {
-  margin-top: 15px;
+/* ============================================================
+   FOOTER CSS VARIABLES
+   (shared with header — no duplication needed if header is present)
+   ============================================================ */
+:root {
+  --eco-bg:           #0d1a0f;
+  --eco-bg-mid:       #111f13;
+  --eco-bg-surface:   rgba(255, 255, 255, 0.04);
+  --eco-accent:       #a7d578;
+  --eco-accent-dim:   rgba(167, 213, 120, 0.40);
+  --eco-accent-glow:  rgba(167, 213, 120, 0.10);
+  --eco-text:         #e8f5e2;
+  --eco-text-muted:   rgba(255, 255, 255, 0.42);
+  --eco-text-nav:     rgba(255, 255, 255, 0.60);
+  --eco-border:       rgba(255, 255, 255, 0.07);
+  --eco-border-mid:   rgba(255, 255, 255, 0.12);
+  --font-serif:       'Cormorant Garamond', Georgia, serif;
+  --font-sans:        'Jost', 'Segoe UI', sans-serif;
 }
 
-.social-icon {
-  width: 28px;
-  height: 28px;
-  transition: 0.3s ease;
-  cursor: pointer;
+/* ============================================================
+   FOOTER SHELL
+   ============================================================ */
+.eco-footer {
+  background-color: var(--eco-bg);
+  font-family: var(--font-sans);
+  position: relative;
+  overflow: hidden;
 }
 
-.social-icon:hover {
-  transform: scale(1.1);
-  opacity: 0.85;
+/* Ambient glow layer */
+.eco-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 15% 20%, rgba(34,90,44,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 85% 80%, rgba(20,60,28,0.18) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Faint leaf tile */
+.eco-footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(-35 36 36)'/%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(35 36 36)'/%3E%3C/svg%3E");
+  background-size: 72px 72px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   TOP ACCENT LINE (mirrors header bottom line)
+   ============================================================ */
+.eco-footer-accent-top {
+  height: 0.5px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--eco-accent-dim) 20%,
+    rgba(167,213,120,0.28) 50%,
+    var(--eco-accent-dim) 80%,
+    transparent 100%
+  );
+}
+
+/* ============================================================
+   INNER WRAPPER
+   ============================================================ */
+.eco-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   TOP ROW — logo left, tagline right
+   ============================================================ */
+.eco-footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 3rem;
+  border-bottom: 0.5px solid var(--eco-border);
+}
+
+/* Logo block */
+.eco-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.eco-footer-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--eco-accent-dim);
+  transition: box-shadow 0.3s ease;
+}
+
+.eco-footer-logo:hover {
+  box-shadow: 0 0 18px rgba(167,213,120,0.25);
+}
+
+.eco-footer-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.eco-footer-wordmark {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--eco-text);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.eco-footer-wordmark em {
+  font-style: italic;
+  color: var(--eco-accent);
+}
+
+.eco-footer-tagline {
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+}
+
+/* Right — description + social */
+.eco-footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  max-width: 340px;
+  text-align: right;
+}
+
+.eco-footer-desc {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+}
+
+/* Social icons */
+.eco-footer-social-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.eco-footer-social-label {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+}
+
+.eco-footer-social-icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.eco-footer-social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0.5px solid var(--eco-border-mid);
+  border-radius: 50%;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.eco-footer-social-icons a:hover {
+  border-color: var(--eco-accent-dim);
+  background: var(--eco-accent-glow);
+}
+
+.eco-social-icon {
+  width: 15px;
+  height: 15px;
+  filter: brightness(0) invert(1);
+  opacity: 0.50;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.eco-footer-social-icons a:hover .eco-social-icon {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(75%) sepia(30%) saturate(500%) hue-rotate(60deg);
+}
+
+/* ============================================================
+   MIDDLE ROW — three columns
+   ============================================================ */
+.eco-footer-mid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-bottom: 0.5px solid var(--eco-border);
+}
+
+.eco-footer-col-title {
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--eco-accent);
+  font-weight: 400;
+  margin-bottom: 18px;
+  opacity: 0.8;
+}
+
+/* About column */
+.eco-footer-about p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+  margin: 0 0 16px;
+}
+
+.eco-footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--eco-accent);
+  text-decoration: none;
+  border: 0.5px solid var(--eco-accent-dim);
+  padding: 8px 16px;
+  border-radius: 2px;
+  background: var(--eco-accent-glow);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.eco-footer-contact-link::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--eco-accent);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.eco-footer-contact-link:hover {
+  background: rgba(167,213,120,0.18);
+  border-color: var(--eco-accent);
+}
+
+/* Navigation columns */
+.eco-footer-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eco-footer-nav-list li a {
+  font-size: 12.5px;
+  color: var(--eco-text-nav);
+  text-decoration: none;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.eco-footer-nav-list li a::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 0.5px;
+  background: var(--eco-accent-dim);
+  flex-shrink: 0;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.eco-footer-nav-list li a:hover {
+  color: var(--eco-accent);
+}
+
+.eco-footer-nav-list li a:hover::before {
+  width: 20px;
+  background: var(--eco-accent);
+}
+
+/* ============================================================
+   BOTTOM BAR — copyright
+   ============================================================ */
+.eco-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.eco-footer-copyright {
+  font-size: 11px;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+.eco-footer-badge {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eco-accent);
+  border: 0.5px solid var(--eco-accent-dim);
+  padding: 3px 9px;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   MOBILE — ≤ 768px
+   ============================================================ */
+@media (max-width: 768px) {
+  .eco-footer-inner {
+    padding: 2.5rem 1.25rem 0;
+  }
+
+  .eco-footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .eco-footer-right {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .eco-footer-social-group {
+    align-items: flex-start;
+  }
+
+  .eco-footer-mid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .eco-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 1.5rem;
+  }
 }
 </style>
+
 
 </head>
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -1340,61 +1688,105 @@ Smart switches also help reduce unnecessary energy use by ensuring lights are ne
 </div>
 </div>
 </main>
-<footer class="wp-block-template-part">
-<div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50)">
-<div class="wp-block-group alignwide is-layout-flow wp-block-group-is-layout-flow"><div class="is-style-rounded is-style-rounded--5 wp-block-site-logo"><a aria-current="page" class="custom-logo-link" href="" rel="home"><img alt="Sustainable Living &amp; Zero waste living" class="custom-logo" decoding="async" height="269" loading="lazy" sizes="auto, (max-width: 269px) 100vw, 269px" src="assets/images/cropped-a-modern-elegant-withouttext_JPG.jpg" srcset="assets/images/cropped-a-modern-elegant-withouttext_JPG.jpg 512w, assets/images/cropped-a-modern-elegant-withouttext_JPG-300x300.jpg 300w, assets/images/cropped-a-modern-elegant-withouttext_JPG-150x150.jpg 150w, assets/images/cropped-a-modern-elegant-withouttext_JPG-270x270.jpg 270w, assets/images/cropped-a-modern-elegant-withouttext_JPG-192x192.jpg 192w, assets/images/cropped-a-modern-elegant-withouttext_JPG-180x180.jpg 180w, assets/images/cropped-a-modern-elegant-withouttext_JPG-32x32.jpg 32w" width="269"/></a></div>
-<div class="wp-block-group alignfull is-content-justification-space-between is-layout-flex wp-container-core-group-is-layout-e5edad21 wp-block-group-is-layout-flex">
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:100%"><h2 class="wp-block-site-title"><a aria-current="page" href="" rel="home" target="_self">Sustainable Living &amp; Zero waste living</a></h2>
-<h5 class="wp-block-site-tagline">Tips for eco-friendly living</h5></div>
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<div aria-hidden="true" class="wp-block-spacer" style="height:var(--wp--preset--spacing--40);width:0px"></div>
-</div>
-</div>
-<div class="wp-block-group is-content-justification-space-between is-layout-flex wp-container-core-group-is-layout-570722b2 wp-block-group-is-layout-flex">
-<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-28f84493 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:100%"><nav aria-label="Menu 14" class="items-justified-left wp-block-navigation is-horizontal is-content-justification-left is-layout-flex wp-container-core-navigation-is-layout-036cb0ab wp-block-navigation-is-layout-flex"><ul class="wp-block-navigation__container items-justified-left wp-block-navigation"><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="https://livingeco.github.io/privacy-policy-2/index.html"><span class="wp-block-navigation-item__label"><strong>Privacy Policy</strong></span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="https://livingeco.github.io/terms-conditions/index.html"><span class="wp-block-navigation-item__label"><strong>Terms &amp; Conditions</strong></span></a></li><li class="wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="https://livingeco.github.io/affiliate-disclosure/index.html"><span class="wp-block-navigation-item__label"><strong>Affiliate Disclosure</strong></span></a></li></ul>
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
-<div class="wp-block-button"><a class="wp-block-button__link has-background wp-element-button" href="mailto:cawmaddi@gmail.com" rel="noreferrer noopener" style="background-color:#8bc34a" target="_blank"><strong>Write to Us</strong></a></div>
-</div>
-</nav></div>
-</div>
-</div>
-</div>
-<div class="follow-us" style="display:flex; flex-direction:column; align-items:flex-end; padding-top:20px;">
-  
-  <span style="font-weight:450; font-size:16px; color:#39473a; margin-bottom:8px;">
-    FOLLOW US ON
-  </span>
+<!-- ============================================================
+     FOOTER HTML
+     ============================================================ -->
+<footer class="eco-footer">
 
-  <!-- Icons Row -->
-  <div style="display:flex; gap:12px; align-items:center;">
-    
-    <!-- Pinterest -->
-    <a href="https://www.pinterest.com/mridulchauhan/" target="_blank" aria-label="Pinterest">
-      <img src="https://www.svgrepo.com/show/512664/pinterest-180.svg" 
-           alt="Pinterest" class="social-icon">
-    </a>
+  <div class="eco-footer-accent-top"></div>
 
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/quietgreenlife" target="_blank" aria-label="Instagram">
-      <img src="https://www.svgrepo.com/show/357908/instagram.svg" 
-           alt="Instagram" class="social-icon">
-    </a>
+  <div class="eco-footer-inner">
+
+    <!-- TOP ROW -->
+    <div class="eco-footer-top">
+
+      <!-- Brand / Logo -->
+      <a class="eco-footer-brand" href="https://livingeco.github.io/index.html" rel="home">
+        <img
+          src="assets/images/cropped-a-modern-elegant-withouttext_JPG.jpg"
+          srcset="assets/images/cropped-a-modern-elegant-withouttext_JPG-150x150.jpg 150w,
+                  assets/images/cropped-a-modern-elegant-withouttext_JPG-270x270.jpg 270w,
+                  assets/images/cropped-a-modern-elegant-withouttext_JPG.jpg 512w"
+          sizes="52px"
+          alt="Eco Living"
+          class="eco-footer-logo"
+          loading="lazy"
+          width="52" height="52"
+        />
+        <div class="eco-footer-brand-text">
+          <span class="eco-footer-wordmark">Eco<em>Living</em></span>
+          <span class="eco-footer-tagline">Sustainable &amp; Zero Waste</span>
+        </div>
+      </a>
+
+      <!-- Right — description + follow us -->
+      <div class="eco-footer-right">
+        <p class="eco-footer-desc">
+          Practical guides and honest inspiration for a simpler,<br>
+          lower-waste life — one small step at a time.
+        </p>
+        <div class="eco-footer-social-group">
+          <span class="eco-footer-social-label">Follow us on</span>
+          <div class="eco-footer-social-icons">
+            <a href="https://www.pinterest.com/mridulchauhan/" target="_blank" aria-label="Pinterest">
+              <img src="https://www.svgrepo.com/show/512664/pinterest-180.svg" class="eco-social-icon" alt="Pinterest">
+            </a>
+            <a href="https://www.instagram.com/quietgreenlife" target="_blank" aria-label="Instagram">
+              <img src="https://www.svgrepo.com/show/357908/instagram.svg" class="eco-social-icon" alt="Instagram">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MIDDLE ROW -->
+    <div class="eco-footer-mid">
+
+      <!-- About + contact -->
+      <div class="eco-footer-about">
+        <p class="eco-footer-col-title">About</p>
+        <p>
+          Eco Living is a resource for people who want to live more
+          intentionally — reducing waste, choosing sustainable products,
+          and building habits that are kinder to the planet.
+        </p>
+        <a class="eco-footer-contact-link" href="mailto:cawmaddi@gmail.com" target="_blank" rel="noreferrer noopener">
+          Write to Us
+        </a>
+      </div>
+
+      <!-- Site links -->
+      <div>
+        <p class="eco-footer-col-title">Navigate</p>
+        <ul class="eco-footer-nav-list">
+          <li><a href="https://livingeco.github.io/index.html">Sustainable Living</a></li>
+          <li><a href="https://livingeco.github.io/about-us/index.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal links -->
+      <div>
+        <p class="eco-footer-col-title">Legal</p>
+        <ul class="eco-footer-nav-list">
+          <li><a href="https://livingeco.github.io/privacy-policy-2/index.html">Privacy Policy</a></li>
+          <li><a href="https://livingeco.github.io/terms-conditions/index.html">Terms &amp; Conditions</a></li>
+          <li><a href="https://livingeco.github.io/affiliate-disclosure/index.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="eco-footer-bottom">
+      <p class="eco-footer-copyright">
+        © 2026 Eco Ideas &nbsp;·&nbsp; Sustainable Living &amp; Zero Waste Lifestyle. All rights reserved.
+      </p>
+      <span class="eco-footer-badge">Zero Waste Since 2019</span>
+    </div>
 
   </div>
 
-</div>
-
-
-
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-<p class="has-text-align-center has-text-color has-link-color has-medium-font-size wp-elements-890fe9be8072ae64e4b59cac429ce68a" style="color:#888888">© 2026 Eco Ideas | Sustainable Living &amp; Zero Waste Lifestyle. All rights reserved.</p>
-</div>
-</div>
 </footer>
 </div>
 <script type="speculationrules">
