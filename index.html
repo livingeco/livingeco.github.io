@@ -175,6 +175,10 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <link href="wp-content/uploads/2025/10/cropped-a-modern-elegant-withouttext_JPG-180x180.jpg" rel="apple-touch-icon"/>
 <meta content="wp-content/uploads/2025/10/cropped-a-modern-elegant-withouttext_JPG-270x270.jpg" name="msapplication-TileImage"/>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 body {
   overflow-y: auto;
@@ -186,172 +190,474 @@ body {
 
 
 </style>
-
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
-
-body {
-  font-family: 'Nunito', ui-sans-serif;
+/* ============================================================
+   CSS VARIABLES — single source of truth for the header
+   ============================================================ */
+:root {
+  --eco-bg:           #0d1a0f;
+  --eco-bg-glow:      rgba(34, 90, 44, 0.30);
+  --eco-accent:       #a7d578;
+  --eco-accent-dim:   rgba(167, 213, 120, 0.45);
+  --eco-accent-glow:  rgba(167, 213, 120, 0.12);
+  --eco-text:         #e8f5e2;
+  --eco-text-muted:   rgba(255, 255, 255, 0.45);
+  --eco-text-nav:     rgba(255, 255, 255, 0.65);
+  --eco-border:       rgba(255, 255, 255, 0.08);
+  --eco-strip-bg:     rgba(255, 255, 255, 0.04);
+  --font-serif:       'Cormorant Garamond', Georgia, serif;
+  --font-sans:        'Jost', 'Segoe UI', sans-serif;
 }
 
+/* ============================================================
+   HEADER SHELL
+   ============================================================ */
 .site-header {
-  background-color: #e2c1c1;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-color: var(--eco-bg);
+  padding: 0;
+  box-shadow: 0 1px 0 var(--eco-border);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-sans);
 }
 
+/* Ambient botanical glow */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 90% at 82% 50%, var(--eco-bg-glow) 0%, transparent 68%),
+    radial-gradient(ellipse 35% 70% at 12% 50%, rgba(20, 60, 28, 0.25) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Faint repeating leaf tile */
+.site-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(-35 36 36)'/%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(35 36 36)'/%3E%3C/svg%3E");
+  background-size: 72px 72px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   TOP UTILITY STRIP
+   ============================================================ */
+.header-top-strip {
+  background: var(--eco-strip-bg);
+  border-bottom: 0.5px solid var(--eco-border);
+  padding: 6px 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.header-strip-left {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.header-strip-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.eco-badge {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eco-accent);
+  border: 0.5px solid var(--eco-accent-dim);
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   MAIN HEADER ROW
+   ============================================================ */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
+  height: 76px;
+  position: relative;
+  z-index: 1;
 }
 
-.logo img {
-  height: auto;
-  max-width: 30%;
-  border-radius: 50%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ============================================================
+   LOGO
+   ============================================================ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
 
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 46px;
+  width: 46px;
+  max-width: none;          /* override old max-width: 30% */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--eco-accent-dim);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .logo-img:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 4px 12px rgba(139, 195, 74, 0.3); /* soft green glow */
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 0 18px rgba(167, 213, 120, 0.28);
+  border-color: var(--eco-accent);
 }
 
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
+.logo-wordmark {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--eco-text);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.logo-wordmark em {
+  font-style: italic;
+  color: var(--eco-accent);
+}
+
+.logo-sub {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--eco-text-muted);
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* ============================================================
+   RIGHT SECTION
+   ============================================================ */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================================
+   NAV LINKS
+   ============================================================ */
 .nav-links {
   display: flex;
-  gap: 2rem;
   align-items: center;
+  gap: 2px;
+  margin: 0;
 }
 
 .nav-links a {
+  font-size: 11.5px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--eco-text-nav);
   text-decoration: none;
-  color: #444;
   font-weight: 400;
-  transition: color 0.3s ease;
+  padding: 8px 13px;
+  border-radius: 3px;
+  position: relative;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 13px;
+  right: 13px;
+  height: 0.5px;
+  background: var(--eco-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
 }
 
 .nav-links a:hover {
-  color: #2e7d32;
+  color: var(--eco-accent);
+  background: var(--eco-accent-glow);
 }
 
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   DIVIDER BETWEEN NAV AND BUTTON
+   ============================================================ */
+.header-divider {
+  width: 0.5px;
+  height: 20px;
+  background: var(--eco-border);
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   CONTACT BUTTON
+   ============================================================ */
 .contact-btn {
-  background-color: #8bc34a;
-  color: white !important;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
+  background: var(--eco-accent-glow);
+  color: var(--eco-accent) !important;
+  border: 0.5px solid var(--eco-accent-dim);
+  padding: 8px 18px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   font-weight: 400;
-  font-size: 0.95rem;
   text-decoration: none;
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3); /* permanent shadow */
-  display: inline-block; /* ensures shadow renders properly */
-  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  box-shadow: none;           /* remove old permanent shadow */
+}
+
+.contact-btn::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--eco-accent);
+  opacity: 0.7;
+  flex-shrink: 0;
 }
 
 .contact-btn:hover {
-  background-color: #689f38;
+  background: rgba(167, 213, 120, 0.20);
+  border-color: var(--eco-accent);
 }
 
-/* ===== FINAL MOBILE HEADER FIX ===== */
-@media (max-width: 768px) {
+/* ============================================================
+   SOCIAL SECTION
+   ============================================================ */
+.social-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+  margin-left: 6px;
+}
 
-  /* Stack whole header */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0.5px solid var(--eco-border);
+  border-radius: 50%;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.header-social a:hover {
+  border-color: var(--eco-accent-dim);
+  background: var(--eco-accent-glow);
+}
+
+.header-icon {
+  width: 15px;
+  height: 15px;
+  filter: brightness(0) invert(1);
+  opacity: 0.55;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.header-social a:hover .header-icon {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(75%) sepia(30%) saturate(500%) hue-rotate(60deg);
+}
+
+/* ============================================================
+   BOTTOM ACCENT LINE
+   ============================================================ */
+.header-accent-line {
+  height: 0.5px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--eco-accent-dim) 20%,
+    rgba(167, 213, 120, 0.3) 50%,
+    var(--eco-accent-dim) 80%,
+    transparent 100%
+  );
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   LOAD ANIMATIONS
+   ============================================================ */
+@keyframes ecoFadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header-top-strip {
+  animation: ecoFadeDown 0.4s ease forwards;
+}
+
+.logo {
+  animation: ecoFadeDown 0.5s ease 0.05s both;
+}
+
+.nav-links {
+  animation: ecoFadeDown 0.5s ease 0.1s both;
+}
+
+.contact-btn {
+  animation: ecoFadeDown 0.5s ease 0.15s both;
+}
+
+.header-social {
+  animation: ecoFadeDown 0.5s ease 0.2s both;
+}
+
+/* ============================================================
+   MOBILE — ≤ 768px
+   ============================================================ */
+@media (max-width: 768px) {
+  .header-top-strip {
+    padding: 5px 1rem;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .header-strip-left {
+    font-size: 9.5px;
+  }
+
   .header-container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 14px !important;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem 0.75rem;
+    gap: 14px;
+    text-align: center;
   }
 
-  /* Logo on top */
-  .logo {
-    order: -1;
-    display: flex;
+  .logo a {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-img {
+    height: 52px;
+    width: 52px;
+  }
+
+  .logo-sub {
+    display: none;
+  }
+
+  .header-right {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    gap: 0;
   }
 
-  /* 🔥 CONTROL THE RIGHT SECTION (KEY FIX) */
-  .header-container > div:last-child {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 10px !important;
-    width: 100%;
-  }
-
-  /* Nav links stacked */
-  .nav-links {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-  /* Contact button centered */
-  .contact-btn {
-    margin: 6px auto !important;
-    display: block !important;
-  }
-
-  /* 🔥 FORCE ICONS BELOW BUTTON */
-  .header-social {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    gap: 14px !important;
-    margin-top: 6px !important;
-    width: 100%;
-  }
-
-  /* Prevent inline weirdness */
-  .header-social a {
-    display: flex !important;
-    align-items: center !important;
-  }
-
-}
-</style>
-<style>
-/* ===== MOBILE HEADER ANIMATION ===== */
-@media (max-width: 768px) {
-
-  /* Animation keyframes */
-  @keyframes headerFadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Apply animation step-by-step */
-  .logo {
-    animation: headerFadeUp 0.6s ease forwards;
-  }
-
-  .nav-links {
-    animation: headerFadeUp 0.8s ease forwards;
+  .header-divider {
+    display: none;
   }
 
   .contact-btn {
-    animation: headerFadeUp 1s ease forwards;
+    margin: 2px 0;
+  }
+
+  .social-label {
+    display: none;
   }
 
   .header-social {
-    animation: headerFadeUp 1.2s ease forwards;
+    justify-content: center;
+    margin-bottom: 4px;
   }
 
+  /* Mobile load animations (staggered) */
+  @keyframes ecoFadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo       { animation: ecoFadeUp 0.55s ease 0.0s both; }
+  .nav-links  { animation: ecoFadeUp 0.55s ease 0.1s both; }
+  .contact-btn{ animation: ecoFadeUp 0.55s ease 0.2s both; }
+  .header-social { animation: ecoFadeUp 0.55s ease 0.3s both; }
+}
+
+/* ============================================================
+   SMALL MOBILE — ≤ 480px
+   ============================================================ */
+@media (max-width: 480px) {
+  .logo-wordmark { font-size: 18px; }
+
+  .nav-links a {
+    font-size: 10.5px;
+    padding: 7px 10px;
+    letter-spacing: 0.09em;
+  }
+
+  .contact-btn {
+    font-size: 10px;
+    padding: 7px 14px;
+  }
 }
 </style>
+
+
 
 <style>
 /* HERO COVER */
@@ -494,78 +800,26 @@ body {
   opacity: 0.85;
 }
 </style>
-<style>
-.header-icon {
-  width: 30px;
-  height: 30px;
-  filter: brightness(0); /* makes icon black */
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.header-icon:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  filter: brightness(0) saturate(100%) invert(38%) sepia(12%) saturate(600%) hue-rotate(70deg); /* subtle green */
-}
-</style>
-<style>
-/* FIX RIGHT SIDE (NAV + BUTTON + ICONS) */
-.header-container > div:last-child {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-/* Keep nav links in one line */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  margin: 0;
-}
-
-/* Align button properly */
-.contact-btn {
-  margin: 0;
-  vertical-align: middle;
-}
-
-/* Social icons alignment */
-.header-social {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: 6px;
-}
-
-/* Remove any weird inline spacing */
-.header-social a {
-  display: flex;
-  align-items: center;
-}
-
-/* EXTRA: fix tiny dash issue if still exists */
-.header-social a::before,
-.header-social a::after {
-  content: none !important;
-}
-</style>
-<style>
-.social-label {
-  font-size: 16px;
-  color: #6b7a6e;   /* soft muted green/grey */
-  letter-spacing: 0.5px;
-  margin-bottom: 2px;
-}
-</style>
 
 </head>
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
 <div class="wp-site-blocks">
 
-<!-- HEADER (FULL WIDTH) -->
+<!-- ============================================================
+     HEADER HTML
+     ============================================================ -->
 <header class="site-header">
+
+  <!-- Top utility strip -->
+  <div class="header-top-strip">
+    <span class="header-strip-left">Sustainable Living &amp; Zero Waste</span>
+    <div class="header-strip-right">
+      <span class="eco-badge">Zero Waste</span>
+      <span class="eco-badge">Eco Living</span>
+    </div>
+  </div>
+
+  <!-- Main header row -->
   <div class="header-container">
 
     <!-- Logo -->
@@ -575,35 +829,44 @@ body {
              alt="Sustainable Living & Zero Waste Living"
              class="logo-img"
              loading="lazy" />
+        <div class="logo-text-group">
+          <span class="logo-wordmark">Eco<em>Living</em></span>
+          <span class="logo-sub">Sustainable &amp; Zero Waste</span>
+        </div>
       </a>
     </div>
 
-    <!-- Right Section -->
+    <!-- Right section -->
     <div class="header-right">
 
-      <!-- Navigation -->
+      <!-- Nav -->
       <nav class="nav-links">
         <a href="https://livingeco.github.io/index.html">Sustainable Living</a>
         <a href="https://livingeco.github.io/about-us/index.html">About</a>
       </nav>
 
-      <!-- Contact Button -->
+      <div class="header-divider"></div>
+
+      <!-- Contact button -->
       <a href="mailto:cawdimaddi@gmail.com" class="contact-btn">Contact Us</a>
-      
-      <!-- Social Icons -->
-	  <span class="social-label">Follow Us</span>
+
+      <!-- Social -->
+      <span class="social-label">Follow</span>
       <div class="header-social">
-        <a href="https://www.pinterest.com/mridulchauhan/" target="_blank">
-          <img src="https://www.svgrepo.com/show/512664/pinterest-180.svg" class="header-icon">
+        <a href="https://www.pinterest.com/mridulchauhan/" target="_blank" aria-label="Pinterest">
+          <img src="https://www.svgrepo.com/show/512664/pinterest-180.svg" class="header-icon" alt="Pinterest">
         </a>
-        <a href="https://www.instagram.com/quietgreenlife" target="_blank">
-          <img src="https://www.svgrepo.com/show/357908/instagram.svg" class="header-icon">
+        <a href="https://www.instagram.com/quietgreenlife" target="_blank" aria-label="Instagram">
+          <img src="https://www.svgrepo.com/show/357908/instagram.svg" class="header-icon" alt="Instagram">
         </a>
       </div>
 
     </div>
-
   </div>
+
+  <!-- Bottom accent line -->
+  <div class="header-accent-line"></div>
+
 </header>
 
 <!-- PAGE LAYOUT -->
