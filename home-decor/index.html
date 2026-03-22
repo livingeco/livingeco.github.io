@@ -655,6 +655,60 @@ a { text-decoration: none; color: inherit; }
 .post-hero h1        { animation: ecoFadeUp 0.5s ease 0.2s both; }
 .post-hero-meta      { animation: ecoFadeUp 0.5s ease 0.3s both; }
 </style>
+
+<style>
+/* ============================================================
+   SOCIAL ICONS IN HEADER
+   ============================================================ */
+.header-social-divider {
+  width: 0.5px;
+  height: 20px;
+  background: rgba(255,255,255,0.08);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0.5px solid rgba(255,255,255,0.10);
+  border-radius: 50%;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.header-social a:hover {
+  border-color: var(--eco-accent-dim);
+  background: var(--eco-accent-glow);
+}
+
+.header-social-icon {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+  opacity: 0.50;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.header-social a:hover .header-social-icon {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(75%) sepia(30%) saturate(500%) hue-rotate(60deg);
+}
+
+/* Hide social label on very small screens */
+@media (max-width: 480px) {
+  .header-social-divider { display: none; }
+}
+</style>
 </head>
 
 <body>
@@ -671,27 +725,50 @@ a { text-decoration: none; color: inherit; }
     </div>
   </div>
 
+  <!-- Main header row -->
   <div class="header-container">
+
+    <!-- Logo -->
     <div class="logo">
       <a href="https://livingeco.github.io/index.html">
         <img src="https://livingeco.github.io/assets/images/cropped-a-modern-elegant-withouttext_JPG.jpg"
              alt="EcoLiving" class="logo-img" loading="lazy">
         <div class="logo-text-group">
-          <span class="logo-wordmark">Living<em>Eco</em></span>
+          <span class="logo-wordmark">Eco<em>Living</em></span>
           <span class="logo-sub">Sustainable &amp; Zero Waste</span>
         </div>
       </a>
     </div>
 
+    <!-- Right section: nav + divider + contact + divider + social -->
     <div class="header-right">
+
       <nav class="nav-links">
         <a href="https://livingeco.github.io/index.html">Sustainable Living</a>
         <a href="https://livingeco.github.io/about-us/index.html">About</a>
       </nav>
+
       <div class="header-divider"></div>
+
       <a href="mailto:cawdimaddi@gmail.com" class="contact-btn">Contact Us</a>
+
+      <div class="header-social-divider"></div>
+
+      <!-- Social icons -->
+      <div class="header-social">
+        <a href="https://www.pinterest.com/mridulchauhan/" target="_blank" aria-label="Pinterest">
+          <img src="https://www.svgrepo.com/show/512664/pinterest-180.svg"
+               class="header-social-icon" alt="Pinterest">
+        </a>
+        <a href="https://www.instagram.com/quietgreenlife" target="_blank" aria-label="Instagram">
+          <img src="https://www.svgrepo.com/show/357908/instagram.svg"
+               class="header-social-icon" alt="Instagram">
+        </a>
+      </div>
+
     </div>
   </div>
+
   <div class="header-accent-line"></div>
 </header>
 
