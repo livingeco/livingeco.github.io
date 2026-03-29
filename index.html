@@ -2148,6 +2148,52 @@ body {
 }
 </style>
 
+<style>
+
+/* FIX 1 - RIGHT WHITE GAP (primary cause)
+   WordPress global styles sets body padding-right to clamp(30px,5vw,50px)
+   This pushes all content inward and leaves white on the right. */
+body {
+  --wp--style--root--padding-right: 0px !important;
+  --wp--style--root--padding-left:  0px !important;
+}
+
+.wp-site-blocks {
+  padding-left:  0 !important;
+  padding-right: 0 !important;
+  overflow-x:    hidden;
+}
+
+/* FIX 2 - RIGHT WHITE GAP (secondary cause)
+   eco-page-layout has max-width:1280px + margin:0 auto
+   which centres it and leaves white on wide screens. */
+.eco-page-layout {
+  max-width:    100% !important;
+  margin-left:  0    !important;
+  margin-right: 0    !important;
+}
+
+/* FIX 3 - WHITE HORIZONTAL LINE between sections
+   WordPress global styles adds margin-block-start:1.2rem to
+   all direct children of .wp-site-blocks. After the tips/faves/
+   final-quote were moved outside .eco-page-layout they became
+   direct children and each got a white gap above them. */
+.eco-tips-section,
+.eco-faves-section,
+.eco-final-quote,
+.eco-footer {
+  margin-block-start: 0 !important;
+  margin-top:         0 !important;
+}
+
+/* BONUS - prevent any horizontal scrollbar */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+</style>
+
 
 </head>
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
