@@ -2477,6 +2477,21 @@ html, body {
 
 </style>
 
+<style>
+/* The eco-main-col is now empty (just a grid placeholder).
+   Hide it so it takes up no visual space. */
+.eco-main-col:empty {
+  display: none;
+}
+
+/* On mobile the grid is already 1 column so this is fine */
+@media (max-width: 900px) {
+  .eco-main-col:empty {
+    display: none;
+  }
+}
+</style>
+
 
 </head>
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -2590,7 +2605,7 @@ html, body {
 
 
     <!-- ============================================================
-     HERO
+     HERO now OUTSIDE the grid, full page width
      ============================================================ -->
 <div class="eco-hero">
   <div class="eco-hero-inner">
@@ -2628,6 +2643,9 @@ html, body {
   </div>
 </div>
 
+<!-- ============================================================
+     CTA BANNER OUTSIDE the grid, full page width
+     ============================================================ -->
 <div class="eco-cta-banner">
 
   <div class="eco-cta-inner">
@@ -2669,7 +2687,7 @@ html, body {
 </div>
 
 <!-- ============================================================
-     TOC
+     TOC OUTSIDE the grid, full page width
      ============================================================ -->
 <div class="eco-toc">
   <div class="eco-toc-inner">
