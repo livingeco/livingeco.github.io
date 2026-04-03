@@ -1179,24 +1179,30 @@ body {
 /* ============================================================
    HERO / COVER BANNER
    ============================================================ */
+/* ============================================================
+   UPGRADED HERO
+   ============================================================ */
 .eco-hero {
   background: var(--eco-bg);
   position: relative;
   overflow: hidden;
-  padding: 6rem 2rem 5rem;
+  padding: 5.5rem 2rem 4.5rem;
   text-align: center;
 }
 
+/* Layered radial glows */
 .eco-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 80% at 50% 110%, rgba(34,90,44,0.45) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 50% at 20% 10%,  rgba(20,60,28,0.30) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 90% at 50% 115%, rgba(34,90,44,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 18% 8%,   rgba(20,60,28,0.30) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 40% at 85% 10%,  rgba(20,60,28,0.22) 0%, transparent 60%);
   pointer-events: none;
 }
 
+/* Leaf tile texture */
 .eco-hero::after {
   content: '';
   position: absolute;
@@ -1210,51 +1216,144 @@ body {
 .eco-hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
+/* Eyebrow */
 .eco-hero-eyebrow {
   font-family: var(--font-sans);
   font-size: 10px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--eco-accent);
   font-weight: 400;
-  margin-bottom: 1.25rem;
-  opacity: 0.85;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.eco-hero h1 {
+.eco-hero-eyebrow::before,
+.eco-hero-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 0.5px;
+  background: var(--eco-accent-dim);
+}
+
+/* Main headline: three punchy lines */
+.eco-hero-headline {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  font-weight: 400;
+  font-weight: 300;
   color: var(--eco-text);
-  line-height: 1.15;
+  line-height: 1.1;
   letter-spacing: 0.01em;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
 }
 
-.eco-hero h1 em {
+.eco-hero-headline .line-1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  display: block;
+  opacity: 0;
+  animation: heroLineIn 0.6s ease 0.1s forwards;
+}
+
+.eco-hero-headline .line-2 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  display: block;
   font-style: italic;
   color: var(--eco-accent);
+  font-weight: 400;
+  opacity: 0;
+  animation: heroLineIn 0.6s ease 0.25s forwards;
 }
 
-.eco-hero p {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  color: var(--eco-text-muted);
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  line-height: 1.8;
-  margin: 0;
+.eco-hero-headline .line-3 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  display: block;
+  opacity: 0;
+  animation: heroLineIn 0.6s ease 0.4s forwards;
 }
 
+/* Thin rule */
 .eco-hero-line {
   width: 40px;
   height: 0.5px;
   background: var(--eco-accent-dim);
-  margin: 1.5rem auto;
+  margin: 0 auto 1.5rem;
+  opacity: 0;
+  animation: heroLineIn 0.6s ease 0.55s forwards;
+}
+
+/* Subheadline */
+.eco-hero-sub {
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.85;
+  margin: 0 0 2.5rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  animation: heroLineIn 0.6s ease 0.65s forwards;
+}
+
+/* Stats row */
+.eco-hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: heroLineIn 0.6s ease 0.8s forwards;
+}
+
+.eco-hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.eco-hero-stat + .eco-hero-stat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px;
+  width: 0.5px;
+  background: var(--eco-border);
+}
+
+.eco-hero-stat-num {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--eco-accent);
+  line-height: 1;
+}
+
+.eco-hero-stat-label {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+}
+
+@keyframes heroLineIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================================
