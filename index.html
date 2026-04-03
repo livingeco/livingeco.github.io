@@ -1177,29 +1177,26 @@ body {
 }
 
 /* ============================================================
-   UPGRADED HERO
+   HERO / COVER BANNER
    ============================================================ */
 .eco-hero {
   background: var(--eco-bg);
   position: relative;
   overflow: hidden;
-  padding: 5.5rem 2rem 4.5rem;
+  padding: 6rem 2rem 5rem;
   text-align: center;
 }
 
-/* Layered radial glows */
 .eco-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 90% at 50% 115%, rgba(34,90,44,0.55) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 50% at 18% 8%,   rgba(20,60,28,0.30) 0%, transparent 60%),
-    radial-gradient(ellipse 30% 40% at 85% 10%,  rgba(20,60,28,0.22) 0%, transparent 60%);
+    radial-gradient(ellipse 60% 80% at 50% 110%, rgba(34,90,44,0.45) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 20% 10%,  rgba(20,60,28,0.30) 0%, transparent 60%);
   pointer-events: none;
 }
 
-/* Leaf tile texture */
 .eco-hero::after {
   content: '';
   position: absolute;
@@ -1213,329 +1210,51 @@ body {
 .eco-hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 760px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
-/* Eyebrow */
 .eco-hero-eyebrow {
   font-family: var(--font-sans);
   font-size: 10px;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--eco-accent);
   font-weight: 400;
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 1.25rem;
+  opacity: 0.85;
 }
 
-.eco-hero-eyebrow::before,
-.eco-hero-eyebrow::after {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 0.5px;
-  background: var(--eco-accent-dim);
-}
-
-/* Main headline: three punchy lines */
-.eco-hero-headline {
+.eco-hero h1 {
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 400;
   color: var(--eco-text);
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: 0.01em;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.25rem;
 }
 
-.eco-hero-headline .line-1 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  display: block;
-  opacity: 0;
-  animation: heroLineIn 0.6s ease 0.1s forwards;
-}
-
-.eco-hero-headline .line-2 {
-  font-size: clamp(2.4rem, 6vw, 4rem);
-  display: block;
+.eco-hero h1 em {
   font-style: italic;
   color: var(--eco-accent);
-  font-weight: 400;
-  opacity: 0;
-  animation: heroLineIn 0.6s ease 0.25s forwards;
 }
 
-.eco-hero-headline .line-3 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  display: block;
-  opacity: 0;
-  animation: heroLineIn 0.6s ease 0.4s forwards;
+.eco-hero p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--eco-text-muted);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  margin: 0;
 }
 
-/* Thin rule */
 .eco-hero-line {
   width: 40px;
   height: 0.5px;
   background: var(--eco-accent-dim);
-  margin: 0 auto 1.5rem;
-  opacity: 0;
-  animation: heroLineIn 0.6s ease 0.55s forwards;
-}
-
-/* Subheadline */
-.eco-hero-sub {
-  font-family: var(--font-sans);
-  font-size: 14.5px;
-  color: var(--eco-text-muted);
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  line-height: 1.85;
-  margin: 0 0 2.5rem;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0;
-  animation: heroLineIn 0.6s ease 0.65s forwards;
-}
-
-/* Stats row */
-.eco-hero-stats {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: heroLineIn 0.6s ease 0.8s forwards;
-}
-
-.eco-hero-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 0 2rem;
-  position: relative;
-}
-
-.eco-hero-stat + .eco-hero-stat::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 28px;
-  width: 0.5px;
-  background: var(--eco-border);
-}
-
-.eco-hero-stat-num {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--eco-accent);
-  line-height: 1;
-}
-
-.eco-hero-stat-label {
-  font-size: 9.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--eco-text-muted);
-  font-weight: 300;
-}
-
-@keyframes heroLineIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================================================
-   CTA BANNER
-   ============================================================ */
-.eco-cta-banner {
-  background: var(--eco-bg-mid, #111f13);
-  border-top: 0.5px solid rgba(167,213,120,0.12);
-  border-bottom: 0.5px solid rgba(167,213,120,0.12);
-  padding: 2rem 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.eco-cta-banner::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(34,90,44,0.20) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.eco-cta-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-.eco-cta-text {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.eco-cta-label {
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--eco-accent);
-  font-weight: 400;
-  opacity: 0.75;
-}
-
-.eco-cta-heading {
-  font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  font-weight: 400;
-  color: var(--eco-text);
-  line-height: 1.3;
-  margin: 0;
-}
-
-.eco-cta-heading em {
-  font-style: italic;
-  color: var(--eco-accent);
-}
-
-.eco-cta-desc {
-  font-size: 13px;
-  color: var(--eco-text-muted);
-  font-weight: 300;
-  line-height: 1.7;
-  margin: 0;
-  max-width: 560px;
-}
-
-/* CTA buttons group */
-.eco-cta-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.eco-cta-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--eco-accent);
-  color: var(--eco-bg) !important;
-  font-family: var(--font-sans);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 12px 24px;
-  border-radius: 2px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.eco-cta-btn-primary::after { content: '→'; font-size: 12px; }
-
-.eco-cta-btn-primary:hover {
-  background: #c4f08a;
-  transform: translateY(-1px);
-}
-
-.eco-cta-btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: transparent;
-  color: var(--eco-accent) !important;
-  font-family: var(--font-sans);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 400;
-  padding: 10px 24px;
-  border-radius: 2px;
-  border: 0.5px solid var(--eco-accent-dim);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.eco-cta-btn-secondary:hover {
-  background: var(--eco-accent-glow);
-  border-color: var(--eco-accent);
-}
-
-/* Three quick-link cards below the main CTA */
-.eco-cta-cards {
-  max-width: 1100px;
-  margin: 1.5rem auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  position: relative;
-  z-index: 1;
-}
-
-.eco-cta-card {
-  background: rgba(255,255,255,0.03);
-  border: 0.5px solid var(--eco-border);
-  border-radius: 6px;
-  padding: 1rem 1.25rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
-}
-
-.eco-cta-card:hover {
-  background: var(--eco-accent-glow);
-  border-color: var(--eco-accent-dim);
-  transform: translateY(-2px);
-}
-
-.eco-cta-card-icon {
-  font-size: 1.3rem;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.eco-cta-card-text {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-}
-
-.eco-cta-card-title {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--eco-text);
-  letter-spacing: 0.02em;
-  line-height: 1.3;
-}
-
-.eco-cta-card-sub {
-  font-size: 10px;
-  color: var(--eco-text-muted);
-  font-weight: 300;
-  letter-spacing: 0.04em;
+  margin: 1.5rem auto;
 }
 
 /* ============================================================
@@ -2120,36 +1839,36 @@ body {
    MOBILE
    ============================================================ */
 @media (max-width: 768px) {
-  .eco-hero { padding: 3.5rem 1.25rem 3rem; }
+  .eco-hero { padding: 4rem 1.25rem 3.5rem; }
 
-  .eco-hero-stat { padding: 0 1.2rem; }
-  .eco-hero-stat-num { font-size: 1.3rem; }
-
-  .eco-cta-inner {
+  .eco-overview {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    text-align: center;
+    padding: 2rem 1.25rem;
+    gap: 14px;
   }
 
-  .eco-cta-desc { max-width: 100%; }
-
-  .eco-cta-buttons {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .eco-cta-cards {
+  .eco-toc-grid {
     grid-template-columns: 1fr;
-    gap: 8px;
-    margin-top: 1rem;
   }
-}
 
-@media (max-width: 480px) {
-  .eco-hero-stat + .eco-hero-stat::before { display: none; }
-  .eco-hero-stats { gap: 1rem; }
-  .eco-hero-stat { padding: 0; }
+  .eco-product-card,
+  .eco-product-card.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .eco-product-card.reverse .eco-product-img-wrap { order: 0; }
+  .eco-product-card.reverse .eco-product-content  { order: 0; padding: 1.25rem; }
+
+  .eco-product-img-wrap { min-height: 220px; }
+  .eco-product-content  { padding: 1.25rem; }
+
+  .eco-section-header,
+  .eco-recs-label,
+  .eco-product-row { padding-left: 1.25rem; padding-right: 1.25rem; }
+
+  .eco-tips-grid { grid-template-columns: 1fr; }
+
+  .eco-chapter-divider h2 { font-size: 1.5rem; }
 }
 </style>
 <style>
@@ -2477,21 +2196,6 @@ html, body {
 
 </style>
 
-<style>
-/* The eco-main-col is now empty (just a grid placeholder).
-   Hide it so it takes up no visual space. */
-.eco-main-col:empty {
-  display: none;
-}
-
-/* On mobile the grid is already 1 column so this is fine */
-@media (max-width: 900px) {
-  .eco-main-col:empty {
-    display: none;
-  }
-}
-</style>
-
 
 </head>
 <body class="home wp-singular page-template-default page page-id-17 wp-custom-logo wp-embed-responsive wp-theme-twentytwentyfive">
@@ -2605,89 +2309,19 @@ html, body {
 
 
     <!-- ============================================================
-     HERO now OUTSIDE the grid, full page width
+     HERO
      ============================================================ -->
 <div class="eco-hero">
   <div class="eco-hero-inner">
-
-    <p class="eco-hero-eyebrow">Your Eco Living Guide</p>
-
-    <h1 class="eco-hero-headline">
-      <span class="line-1">Save Money.</span>
-      <span class="line-2">Reduce Waste.</span>
-      <span class="line-3">Live Better.</span>
-    </h1>
-
+    <p class="eco-hero-eyebrow">A Complete Guide</p>
+    <h1>Sustainable &amp; <em>Zero Waste</em> Living</h1>
     <div class="eco-hero-line"></div>
-
-    <p class="eco-hero-sub">
-      Practical eco-friendly swaps, honest product picks, and simple habits
-      that are genuinely kinder to your wallet and the planet.
-    </p>
-
-    <div class="eco-hero-stats">
-      <div class="eco-hero-stat">
-        <span class="eco-hero-stat-num">15+</span>
-        <span class="eco-hero-stat-label">Products Reviewed</span>
-      </div>
-      <div class="eco-hero-stat">
-        <span class="eco-hero-stat-num">5</span>
-        <span class="eco-hero-stat-label">Lifestyle Chapters</span>
-      </div>
-      <div class="eco-hero-stat">
-        <span class="eco-hero-stat-num">100%</span>
-        <span class="eco-hero-stat-label">Plastic-Free Picks</span>
-      </div>
-    </div>
-
+    <p>Practical eco-friendly tips for a greener home and lifestyle. Small choices that add up to a big impact.</p>
   </div>
 </div>
 
 <!-- ============================================================
-     CTA BANNER OUTSIDE the grid, full page width
-     ============================================================ -->
-<div class="eco-cta-banner">
-
-  <div class="eco-cta-inner">
-    <div class="eco-cta-text">
-      <span class="eco-cta-label">Start Here</span>
-      <h2 class="eco-cta-heading">Not sure where to begin? <em>Start with the essentials.</em></h2>
-      <p class="eco-cta-desc">Browse our most recommended eco swaps for the kitchen, home, and daily routine. Every product is personally tested and linked directly on Amazon for easy ordering.</p>
-    </div>
-    <div class="eco-cta-buttons">
-      <a class="eco-cta-btn-primary" href="#kitchen">Browse Top Picks</a>
-      <a class="eco-cta-btn-secondary" href="https://livingeco.github.io/about-us/index.html">About This Site</a>
-    </div>
-  </div>
-
-  <div class="eco-cta-cards">
-    <a class="eco-cta-card" href="#kitchen">
-      <span class="eco-cta-card-icon">🍃</span>
-      <div class="eco-cta-card-text">
-        <span class="eco-cta-card-title">Kitchen Essentials</span>
-        <span class="eco-cta-card-sub">Glass jars, beeswax wraps, bamboo</span>
-      </div>
-    </a>
-    <a class="eco-cta-card" href="#green-energy">
-      <span class="eco-cta-card-icon">☀️</span>
-      <div class="eco-cta-card-text">
-        <span class="eco-cta-card-title">Green Energy &amp; Home</span>
-        <span class="eco-cta-card-sub">Solar, plants, smart lighting</span>
-      </div>
-    </a>
-    <a class="eco-cta-card" href="#diy">
-      <span class="eco-cta-card-icon">🌱</span>
-      <div class="eco-cta-card-text">
-        <span class="eco-cta-card-title">DIY &amp; Garden</span>
-        <span class="eco-cta-card-sub">Compost, grow your own, tools</span>
-      </div>
-    </a>
-  </div>
-
-</div>
-
-<!-- ============================================================
-     TOC OUTSIDE the grid, full page width
+     TOC
      ============================================================ -->
 <div class="eco-toc">
   <div class="eco-toc-inner">
