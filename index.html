@@ -1429,14 +1429,6 @@ body {
   border-top: 0.5px solid var(--eco-border);
   border-bottom: 0.5px solid var(--eco-border);
   padding: 2.5rem 2rem;
-  
-  /* STICKY FIX */
-  position: sticky;
-  top: 100px; /* Below your fixed header */
-  z-index: 10;
-  
-  /* DESKTOP ONLY */
-  margin-bottom: 2rem;
 }
 
 .eco-toc-inner {
@@ -1495,15 +1487,6 @@ body {
   font-weight: 400;
   letter-spacing: 0.04em;
   line-height: 1.4;
-}
-
-/* MOBILE: Remove sticky behavior */
-@media (max-width: 860px) {
-  .eco-toc {
-    position: static;
-    top: auto;
-    margin-bottom: 1rem;
-  }
 }
 
 /* ============================================================
