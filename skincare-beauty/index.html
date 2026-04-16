@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<title>10 Sustainable Skincare & Beauty Essentials | EcoLiving</title>
+<title>10 Sustainable Skincare and Beauty Essentials | EcoLiving</title>
 
 <!-- Favicons -->
 <link href="https://livingeco.github.io/assets/images/cropped-a-modern-elegant-withouttext_JPG-32x32.jpg" rel="icon" sizes="32x32"/>
@@ -22,7 +22,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* ---- Shared site palette (dark botanical header/footer) ---- */
   --eco-bg:           #0d1a0f;
   --eco-bg-mid:       #111f13;
   --eco-bg-surface:   rgba(255,255,255,0.04);
@@ -35,20 +34,18 @@
   --font-serif:       'Cormorant Garamond', Georgia, serif;
   --font-sans:        'Jost', 'Segoe UI', sans-serif;
 
-  /* ---- Option C: Soft sage pearl for Skincare post ---- */
   --post-bg:          #f5f7f4;
   --post-surface:     #ffffff;
   --post-text:        #1c2420;
   --post-text-mid:    #3a4a3e;
   --post-text-muted:  #6a7a6e;
-  --post-accent:      #4a7c59;        /* deep botanical sage    */
-  --post-accent-lt:   #85b898;        /* lighter pearl sage     */
+  --post-accent:      #4a7c59;
+  --post-accent-lt:   #85b898;
   --post-accent-dim:  rgba(74,124,89,0.28);
   --post-accent-glow: rgba(74,124,89,0.07);
   --post-border:      rgba(74,124,89,0.12);
   --post-rule:        rgba(74,124,89,0.14);
 
-  /* Journey section colors */
   --journey-1:        #4a7c59;
   --journey-2:        #6b7c4a;
   --journey-3:        #4a6b7c;
@@ -69,13 +66,12 @@ img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
 
 /* ============================================================
-   HEADER (dark botanical, same as all pages)
+   HEADER
    ============================================================ */
 .site-header {
   background-color: var(--eco-bg);
   padding: 0; position: relative; overflow: hidden; z-index: 100;
 }
-
 .site-header::before {
   content: ''; position: absolute; inset: 0;
   background:
@@ -83,13 +79,11 @@ a { text-decoration: none; color: inherit; }
     radial-gradient(ellipse 35% 70% at 12% 50%, rgba(20,60,28,0.25) 0%, transparent 60%);
   pointer-events: none;
 }
-
 .site-header::after {
   content: ''; position: absolute; inset: 0; opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(-35 36 36)'/%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(35 36 36)'/%3E%3C/svg%3E");
   background-size: 72px 72px; pointer-events: none;
 }
-
 .header-top-strip {
   background: rgba(255,255,255,0.04);
   border-bottom: 0.5px solid rgba(255,255,255,0.08);
@@ -97,36 +91,29 @@ a { text-decoration: none; color: inherit; }
   display: flex; justify-content: space-between; align-items: center;
   position: relative; z-index: 1;
 }
-
 .header-strip-left {
   font-size: 10.5px; letter-spacing: 0.14em;
   color: rgba(255,255,255,0.42); font-weight: 300; text-transform: uppercase;
 }
-
 .header-strip-right { display: flex; align-items: center; gap: 14px; }
-
 .eco-badge {
   font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--eco-accent); border: 0.5px solid var(--eco-accent-dim);
   padding: 2px 8px; border-radius: 2px; font-weight: 400; opacity: 0.85;
 }
-
 .header-container {
   display: flex; justify-content: space-between; align-items: center;
   max-width: 1200px; margin: 0 auto; padding: 0 2rem;
   height: 76px; position: relative; z-index: 1;
 }
-
 .logo { display: flex; align-items: center; gap: 13px; flex-shrink: 0; }
 .logo a { display: flex; align-items: center; gap: 13px; }
-
 .logo-img {
   height: 46px; width: 46px; border-radius: 50%; object-fit: cover;
   border: 1px solid var(--eco-accent-dim);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 .logo-img:hover { transform: scale(1.04); box-shadow: 0 0 18px rgba(167,213,120,0.28); }
-
 .logo-text-group { display: flex; flex-direction: column; gap: 2px; }
 .logo-wordmark {
   font-family: var(--font-serif); font-size: 21px; font-weight: 400;
@@ -137,10 +124,8 @@ a { text-decoration: none; color: inherit; }
   font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
   color: rgba(255,255,255,0.38); font-weight: 300;
 }
-
 .header-right { display: flex; align-items: center; gap: 6px; }
 .nav-links { display: flex; align-items: center; gap: 2px; }
-
 .nav-links a {
   font-size: 11.5px; letter-spacing: 0.11em; text-transform: uppercase;
   color: rgba(255,255,255,0.65); font-weight: 400;
@@ -148,9 +133,7 @@ a { text-decoration: none; color: inherit; }
   transition: color 0.2s, background 0.2s;
 }
 .nav-links a:hover { color: var(--eco-accent); background: var(--eco-accent-glow); }
-
 .header-divider { width: 0.5px; height: 20px; background: rgba(255,255,255,0.08); margin: 0 8px; }
-
 .contact-btn {
   background: var(--eco-accent-glow); color: var(--eco-accent) !important;
   border: 0.5px solid var(--eco-accent-dim);
@@ -165,14 +148,11 @@ a { text-decoration: none; color: inherit; }
   background: var(--eco-accent); opacity: 0.7; flex-shrink: 0;
 }
 .contact-btn:hover { background: rgba(167,213,120,0.20); border-color: var(--eco-accent); }
-
 .social-label {
   font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--eco-text-muted); font-weight: 300; margin-left: 6px;
 }
-
 .header-social { display: flex; align-items: center; gap: 6px; }
-
 .header-social a {
   display: flex; align-items: center; justify-content: center;
   width: 32px; height: 32px;
@@ -180,7 +160,6 @@ a { text-decoration: none; color: inherit; }
   transition: border-color 0.2s, background 0.2s;
 }
 .header-social a:hover { border-color: var(--eco-accent-dim); background: var(--eco-accent-glow); }
-
 .header-social-icon {
   width: 14px; height: 14px;
   filter: brightness(0) invert(1); opacity: 0.50;
@@ -190,12 +169,10 @@ a { text-decoration: none; color: inherit; }
   opacity: 1;
   filter: brightness(0) saturate(100%) invert(75%) sepia(30%) saturate(500%) hue-rotate(60deg);
 }
-
 .header-social-divider {
   width: 0.5px; height: 20px;
   background: rgba(255,255,255,0.08); margin: 0 4px; flex-shrink: 0;
 }
-
 .header-accent-line {
   height: 0.5px;
   background: linear-gradient(90deg, transparent, var(--eco-accent-dim) 20%, rgba(167,213,120,0.3) 50%, var(--eco-accent-dim) 80%, transparent);
@@ -203,17 +180,15 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================================
-   POST HERO (sage botanical overlay)
+   POST HERO
    ============================================================ */
 .post-hero {
   position: relative; overflow: hidden; max-height: 520px;
 }
-
 .post-hero-img {
   width: 100%; height: 520px;
   object-fit: cover; object-position: center; display: block;
 }
-
 .post-hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(
@@ -223,13 +198,11 @@ a { text-decoration: none; color: inherit; }
     rgba(12,24,16,0.88) 100%
   );
 }
-
 .post-hero-inner {
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 3rem 2rem 2.5rem;
   max-width: 900px; margin: 0 auto;
 }
-
 .post-hero-category {
   font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--post-accent-lt); font-weight: 400; margin-bottom: 0.75rem;
@@ -239,14 +212,12 @@ a { text-decoration: none; color: inherit; }
   content: ''; width: 20px; height: 0.5px;
   background: var(--post-accent-lt); opacity: 0.6;
 }
-
 .post-hero h1 {
   font-family: var(--font-serif);
   font-size: clamp(1.9rem, 4.5vw, 3rem); font-weight: 400;
   color: #eef6f0; line-height: 1.15; letter-spacing: 0.01em;
   margin-bottom: 1rem; max-width: 720px;
 }
-
 .post-hero-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .post-hero-meta span {
   font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
@@ -258,72 +229,58 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================================
-   INTRO STRIP (deep sage band)
+   INTRO STRIP
    ============================================================ */
 .post-intro-strip {
   background: var(--post-accent);
   padding: 1.5rem 2rem; position: relative; overflow: hidden;
 }
-
 .post-intro-strip::before {
   content: ''; position: absolute; inset: 0;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cellipse cx='30' cy='30' rx='6' ry='14' fill='%23ffffff' transform='rotate(-30 30 30)'/%3E%3Cellipse cx='30' cy='30' rx='6' ry='14' fill='%23ffffff' transform='rotate(30 30 30)'/%3E%3C/svg%3E") repeat;
   background-size: 60px 60px; opacity: 0.04; pointer-events: none;
 }
-
 .post-intro-strip-inner {
   max-width: 860px; margin: 0 auto; position: relative; z-index: 1;
 }
-
 .post-intro-strip p {
   font-size: 14.5px; line-height: 1.85;
   color: rgba(238,246,240,0.88); font-weight: 300;
 }
 
 /* ============================================================
-   BUYING JOURNEY SECTION
+   BUYING JOURNEY
    ============================================================ */
 .post-journey {
   background: var(--post-bg);
   padding: 3rem 2rem 0;
   border-bottom: 0.5px solid var(--post-rule);
 }
-
-.post-journey-inner {
-  max-width: 900px; margin: 0 auto;
-}
-
+.post-journey-inner { max-width: 900px; margin: 0 auto; }
 .post-journey-label {
   font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--post-accent); font-weight: 400; margin-bottom: 1.25rem; opacity: 0.8;
 }
-
 .post-journey-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
   padding-bottom: 2.5rem;
 }
-
 .post-journey-card {
-  border-radius: 6px; padding: 1.25rem 1.25rem;
+  border-radius: 6px; padding: 1.25rem;
   text-decoration: none; display: flex; flex-direction: column; gap: 6px;
   transition: transform 0.2s, box-shadow 0.2s;
   position: relative; overflow: hidden;
 }
 .post-journey-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-
 .post-journey-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
 }
-
 .post-journey-card.j1 { background: rgba(74,124,89,0.08); border: 0.5px solid rgba(74,124,89,0.18); }
 .post-journey-card.j1::before { background: var(--journey-1); }
-
 .post-journey-card.j2 { background: rgba(107,124,74,0.08); border: 0.5px solid rgba(107,124,74,0.18); }
 .post-journey-card.j2::before { background: var(--journey-2); }
-
 .post-journey-card.j3 { background: rgba(74,107,124,0.08); border: 0.5px solid rgba(74,107,124,0.18); }
 .post-journey-card.j3::before { background: var(--journey-3); }
-
 .post-journey-step {
   font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase;
   font-weight: 400; opacity: 0.7;
@@ -331,41 +288,30 @@ a { text-decoration: none; color: inherit; }
 .j1 .post-journey-step { color: var(--journey-1); }
 .j2 .post-journey-step { color: var(--journey-2); }
 .j3 .post-journey-step { color: var(--journey-3); }
-
 .post-journey-title {
   font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400;
   color: var(--post-text); line-height: 1.3;
 }
-
 .post-journey-items {
-  font-size: 11px; color: var(--post-text-muted); font-weight: 300;
-  line-height: 1.6;
+  font-size: 11px; color: var(--post-text-muted); font-weight: 300; line-height: 1.6;
 }
 
 /* ============================================================
    ARTICLE BODY
    ============================================================ */
 .post-body { background: var(--post-bg); padding: 3rem 2rem 5rem; }
-
 .post-inner { max-width: 900px; margin: 0 auto; }
 
-/* ============================================================
-   SECTION HEADERS (Start Here / Upgrade / Minimalist)
-   ============================================================ */
+/* Section dividers */
 .post-section-divider {
   padding: 2.5rem 0 1.5rem;
   display: flex; align-items: center; gap: 16px;
 }
-
-.post-section-divider-line {
-  flex: 1; height: 0.5px; background: var(--post-rule);
-}
-
+.post-section-divider-line { flex: 1; height: 0.5px; background: var(--post-rule); }
 .post-section-divider-tag {
   font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
   font-weight: 400; padding: 4px 12px; border-radius: 2px; white-space: nowrap;
 }
-
 .post-section-divider.s1 .post-section-divider-tag {
   color: var(--journey-1); border: 0.5px solid rgba(74,124,89,0.30);
   background: rgba(74,124,89,0.06);
@@ -379,11 +325,8 @@ a { text-decoration: none; color: inherit; }
   background: rgba(74,107,124,0.06);
 }
 
-/* ============================================================
-   PRODUCT CARDS
-   ============================================================ */
+/* Product cards */
 .post-product-row { padding: 0 0 2rem; }
-
 .post-product-card {
   display: grid; grid-template-columns: 300px 1fr; gap: 0;
   background: var(--post-surface);
@@ -395,11 +338,9 @@ a { text-decoration: none; color: inherit; }
   border-color: rgba(74,124,89,0.30);
   box-shadow: 0 8px 32px rgba(74,124,89,0.08);
 }
-
 .post-product-card.reverse { grid-template-columns: 1fr 300px; }
 .post-product-card.reverse .post-img-wrap { order: 2; }
 .post-product-card.reverse .post-product-content { order: 1; }
-
 .post-img-wrap {
   background: #e8efe9;
   display: flex; align-items: center; justify-content: center;
@@ -410,62 +351,47 @@ a { text-decoration: none; color: inherit; }
   transition: transform 0.4s ease;
 }
 .post-product-card:hover .post-img-wrap img { transform: scale(1.03); }
-
 .post-product-content {
   padding: 2rem; display: flex; flex-direction: column;
   gap: 12px; justify-content: center;
 }
 .post-product-card.reverse .post-product-content { padding: 2rem 2rem 2rem 2.5rem; }
-
 .post-item-num {
   font-family: var(--font-serif); font-size: 2.5rem; font-weight: 300;
   color: var(--post-accent-dim); line-height: 1;
 }
-
 .post-product-tag {
   font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--post-accent); font-weight: 400;
   border: 0.5px solid var(--post-accent-dim);
   padding: 2px 8px; border-radius: 2px; display: inline-block;
 }
-
 .post-product-name {
   font-family: var(--font-serif); font-size: 1.45rem; font-weight: 400;
   color: var(--post-text); line-height: 1.2; margin: 0;
 }
-
-/* Benefit badges */
-.post-product-benefits {
-  display: flex; flex-wrap: wrap; gap: 6px;
-}
-
+.post-product-benefits { display: flex; flex-wrap: wrap; gap: 6px; }
 .post-benefit-badge {
   font-size: 10px; font-weight: 300; letter-spacing: 0.04em;
   color: var(--post-accent); background: var(--post-accent-glow);
   border: 0.5px solid var(--post-accent-dim);
   padding: 3px 9px; border-radius: 2px;
 }
-
 .post-product-desc {
   font-size: 13.5px; line-height: 1.85;
   color: var(--post-text-mid); font-weight: 300; margin: 0;
 }
-
 .post-product-rec {
   font-family: var(--font-serif); font-size: 13.5px; font-style: italic;
   color: var(--post-text-muted); line-height: 1.7; margin: 0;
 }
-
 .post-product-card-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-top: 4px;
+  display: flex; align-items: center; justify-content: space-between; padding-top: 4px;
 }
-
 .post-starter-badge {
   font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--post-accent); font-weight: 400; opacity: 0.75;
 }
-
 .post-shop-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--post-accent); color: #fff;
@@ -476,7 +402,6 @@ a { text-decoration: none; color: inherit; }
 }
 .post-shop-btn::after { content: '→'; font-size: 12px; }
 .post-shop-btn:hover { background: #3a6045; }
-
 .post-rule {
   border: none; border-top: 0.5px solid var(--post-rule);
   margin: 0.5rem 0 2rem;
@@ -505,8 +430,7 @@ a { text-decoration: none; color: inherit; }
 }
 .post-closing-quote blockquote::before {
   content: '"'; font-size: 5rem; line-height: 0;
-  color: rgba(238,246,240,0.2);
-  display: block; margin-bottom: -1rem;
+  color: rgba(238,246,240,0.2); display: block; margin-bottom: -1rem;
 }
 
 /* ============================================================
@@ -525,7 +449,7 @@ a { text-decoration: none; color: inherit; }
 .post-back-link:hover { gap: 12px; }
 
 /* ============================================================
-   FOOTER (dark botanical, same as all pages)
+   FOOTER
    ============================================================ */
 .eco-footer {
   background-color: var(--eco-bg);
@@ -657,16 +581,12 @@ a { text-decoration: none; color: inherit; }
   .header-divider, .header-social-divider { display: none; }
   .nav-links { flex-wrap: wrap; justify-content: center; }
   .header-social { justify-content: center; }
-
   .post-hero-img { height: 320px; }
   .post-hero-inner { padding: 1.5rem 1.25rem; }
   .post-hero h1 { font-size: 1.6rem; }
-
   .post-journey { padding: 2rem 1.25rem 0; }
   .post-journey-grid { grid-template-columns: 1fr; gap: 8px; }
-
   .post-body { padding: 2rem 1.25rem 3rem; }
-
   .post-product-card,
   .post-product-card.reverse { grid-template-columns: 1fr; }
   .post-product-card.reverse .post-img-wrap { order: 0; }
@@ -674,7 +594,6 @@ a { text-decoration: none; color: inherit; }
   .post-img-wrap { min-height: 220px; }
   .post-product-content,
   .post-product-card.reverse .post-product-content { padding: 1.25rem; }
-
   .eco-footer-mid { grid-template-columns: 1fr; gap: 2rem; }
   .eco-footer-top { flex-direction: column; align-items: flex-start; }
   .eco-footer-right { align-items: flex-start; text-align: left; max-width: 100%; }
@@ -682,9 +601,6 @@ a { text-decoration: none; color: inherit; }
   .eco-footer-bottom { flex-direction: column; align-items: flex-start; padding-bottom: 1.5rem; }
 }
 
-/* ============================================================
-   ANIMATIONS
-   ============================================================ */
 @keyframes ecoFadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -697,18 +613,15 @@ a { text-decoration: none; color: inherit; }
 
 <body>
 
-<!-- ============================================================
-     HEADER
-     ============================================================ -->
+<!-- HEADER -->
 <header class="site-header">
   <div class="header-top-strip">
-    <span class="header-strip-left">Sustainable & Zero Waste Living</span>
+    <span class="header-strip-left">Sustainable and Zero Waste Living</span>
     <div class="header-strip-right">
       <span class="eco-badge">Clean Beauty</span>
       <span class="eco-badge">Zero Waste</span>
     </div>
   </div>
-
   <div class="header-container">
     <div class="logo">
       <a href="https://livingeco.github.io/index.html">
@@ -720,7 +633,6 @@ a { text-decoration: none; color: inherit; }
         </div>
       </a>
     </div>
-
     <div class="header-right">
       <nav class="nav-links">
         <a href="https://livingeco.github.io/index.html">Sustainable Living</a>
@@ -743,15 +655,11 @@ a { text-decoration: none; color: inherit; }
   <div class="header-accent-line"></div>
 </header>
 
-<!-- ============================================================
-     POST HERO
-     ============================================================ -->
+<!-- HERO -->
 <div class="post-hero">
-  <img
-    class="post-hero-img"
+  <img class="post-hero-img"
     src="https://livingeco.github.io/assets/images/sustainable_edits_hero_image.jpeg"
-    alt="Sustainable Skincare and Beauty Essentials"
-    loading="eager">
+    alt="Sustainable Skincare and Beauty Essentials" loading="eager">
   <div class="post-hero-overlay"></div>
   <div class="post-hero-inner">
     <p class="post-hero-category">Sustainable Skincare</p>
@@ -766,57 +674,51 @@ a { text-decoration: none; color: inherit; }
   </div>
 </div>
 
-<!-- ============================================================
-     INTRO STRIP
-     ============================================================ -->
+<!-- INTRO STRIP -->
 <div class="post-intro-strip">
   <div class="post-intro-strip-inner">
-    <p>Your skincare routine is one of the most personal parts of your day, and it is also one of the easiest places to reduce plastic waste without sacrificing quality. Every product below was chosen for its impact, reusability, and low-waste packaging. These are practical swaps that genuinely work for daily use, whether you are just starting out or looking to go further.</p>
+    <p>Your beauty routine is one of the easiest places to cut plastic without giving anything up. Every product here is something you already use every day. These are real swaps, chosen for genuine daily use, proven impact, and strong affiliate value. Start with one and build from there.</p>
   </div>
 </div>
 
-<!-- ============================================================
-     BUYING JOURNEY
-     ============================================================ -->
+<!-- BUYING JOURNEY -->
 <div class="post-journey">
   <div class="post-journey-inner">
-    <p class="post-journey-label">Your beauty journey, in three steps</p>
+    <p class="post-journey-label">Your sustainable beauty journey, in three steps</p>
     <div class="post-journey-grid">
-      <a class="post-journey-card j1" href="#start-here">
+      <a class="post-journey-card j1" href="#easiest-swaps">
         <span class="post-journey-step">Step 01 · Start Here</span>
         <span class="post-journey-title">The Easiest First Swaps</span>
-        <span class="post-journey-items">Reusable pads, shampoo bars, organic soap</span>
+        <span class="post-journey-items">Reusable pads, shampoo bars, conditioner bar, organic soap</span>
       </a>
-      <a class="post-journey-card j2" href="#upgrade">
+      <a class="post-journey-card j2" href="#upgrade-routine">
         <span class="post-journey-step">Step 02 · Upgrade Your Routine</span>
-        <span class="post-journey-title">Glass Bottles and Zero-Waste Packaging</span>
-        <span class="post-journey-items">Serum bottles, cream jars, amber glass</span>
+        <span class="post-journey-title">Better Products, Less Plastic</span>
+        <span class="post-journey-items">Natural deodorant, face oil, solid lotion bar, reef-safe sunscreen</span>
       </a>
-      <a class="post-journey-card j3" href="#minimalist">
-        <span class="post-journey-step">Step 03 · Minimalist Essentials</span>
-        <span class="post-journey-title">Travel-Ready and Refillable</span>
-        <span class="post-journey-items">Storage jars, refillable containers, bamboo pads</span>
+      <a class="post-journey-card j3" href="#finishing-touches">
+        <span class="post-journey-step">Step 03 · Finishing Touches</span>
+        <span class="post-journey-title">Daily Tools That Last for Years</span>
+        <span class="post-journey-items">Gua sha stone, natural lip balm</span>
       </a>
     </div>
   </div>
 </div>
 
-<!-- ============================================================
-     PRODUCT CONTENT
-     ============================================================ -->
+<!-- PRODUCT CONTENT -->
 <div class="post-body">
   <div class="post-inner">
 
-    <!-- ======== SECTION 1: START HERE ======== -->
-    <div id="start-here" class="post-section-divider s1">
+    <!-- SECTION 1 -->
+    <div id="easiest-swaps" class="post-section-divider s1">
       <div class="post-section-divider-line"></div>
       <span class="post-section-divider-tag">Step 01 · Start Here</span>
       <div class="post-section-divider-line"></div>
     </div>
 
-    <!-- 1. Reusable Makeup Remover Pads -->
+    <!-- 01. Reusable Makeup Remover Pads -->
     <div class="post-product-row">
-      <div id="reusable-makeup-pads" class="post-product-card">
+      <div class="post-product-card">
         <div class="post-img-wrap">
           <img src="https://livingeco.github.io/assets/images/cotton_pads_2.jpeg" alt="Reusable Makeup Remover Pads" loading="lazy">
         </div>
@@ -825,12 +727,12 @@ a { text-decoration: none; color: inherit; }
           <span class="post-product-tag">Skincare · Daily Use</span>
           <h2 class="post-product-name">Reusable Makeup Remover Pads</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">Replaces 1000+ disposable pads</span>
+            <span class="post-benefit-badge">Replaces 1000 plus disposable pads</span>
             <span class="post-benefit-badge">Gentle on skin</span>
-            <span class="post-benefit-badge">Cost-effective</span>
+            <span class="post-benefit-badge">Pays for itself in weeks</span>
           </div>
-          <p class="post-product-desc">Soft, washable cotton rounds that replace the single-use pads most of us reach for every day without thinking. One set easily lasts for years and does the job just as well for removing makeup, applying toner, or cleansing. This is the easiest swap you can make and it pays for itself within weeks.</p>
-          <p class="post-product-rec">The perfect first swap for anyone starting a zero-waste beauty routine.</p>
+          <p class="post-product-desc">Soft, washable cotton rounds that replace the single-use pads most of us reach for every single day without thinking. One set lasts for years and does the job perfectly well for removing makeup, applying toner, or gentle cleansing. This is the single easiest swap you can make in your entire beauty routine and the savings add up fast.</p>
+          <p class="post-product-rec">The first swap I recommend to anyone starting a zero-waste beauty routine. Simple, effective, and instantly satisfying.</p>
           <div class="post-product-card-footer">
             <span class="post-starter-badge">Best Starter Pick</span>
             <a class="post-shop-btn" href="https://www.amazon.com/s?k=reusable+makeup+remover+pads&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
@@ -841,23 +743,23 @@ a { text-decoration: none; color: inherit; }
 
     <hr class="post-rule">
 
-    <!-- 2. Shampoo Bar -->
+    <!-- 02. Shampoo Bar -->
     <div class="post-product-row">
-      <div id="shampoo-bar" class="post-product-card reverse">
+      <div class="post-product-card reverse">
         <div class="post-img-wrap">
-          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Shampoo Bar" loading="lazy">
+          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Plastic-Free Shampoo Bar" loading="lazy">
         </div>
         <div class="post-product-content">
           <div class="post-item-num">02</div>
           <span class="post-product-tag">Haircare · Plastic-Free</span>
           <h2 class="post-product-name">Shampoo Bar</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">1 bar = 2 to 3 bottles</span>
+            <span class="post-benefit-badge">1 bar outlasts 2 to 3 bottles</span>
             <span class="post-benefit-badge">Zero plastic packaging</span>
             <span class="post-benefit-badge">Travel-friendly</span>
           </div>
-          <p class="post-product-desc">A concentrated, plastic-free alternative to liquid shampoo that lathers beautifully and leaves hair clean and soft. One bar typically outlasts two to three regular shampoo bottles, which makes it both eco-friendly and genuinely economical. The compact size is ideal for travelling without the usual liquid restrictions.</p>
-          <p class="post-product-rec">A plastic-free haircare essential that works from day one.</p>
+          <p class="post-product-desc">A concentrated, plastic-free bar that lathers well and leaves hair genuinely clean and soft. One bar typically outlasts two or three regular shampoo bottles, which makes it both eco-friendly and much cheaper over time. It is also ideal for travelling because it bypasses liquid restrictions completely and takes up almost no space in a bag.</p>
+          <p class="post-product-rec">A plastic-free haircare essential that works from the very first wash. One of the highest-converting swaps in sustainable beauty.</p>
           <a class="post-shop-btn" href="https://www.amazon.com/s?k=shampoo+bar+plastic+free&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
@@ -865,33 +767,33 @@ a { text-decoration: none; color: inherit; }
 
     <hr class="post-rule">
 
-    <!-- 3. Herbal Shampoo Bar -->
+    <!-- 03. Conditioner Bar -->
     <div class="post-product-row">
-      <div id="herbal-shampoo-bar" class="post-product-card">
+      <div class="post-product-card">
         <div class="post-img-wrap">
-          <img src="https://livingeco.github.io/assets/images/herbal_shampoo_bar.jpeg" alt="Herbal Shampoo Bar" loading="lazy">
+          <img src="https://livingeco.github.io/assets/images/herbal_shampoo_bar.jpeg" alt="Conditioner Bar" loading="lazy">
         </div>
         <div class="post-product-content">
           <div class="post-item-num">03</div>
-          <span class="post-product-tag">Haircare · Natural</span>
-          <h2 class="post-product-name">Herbal Shampoo Bar</h2>
+          <span class="post-product-tag">Haircare · Zero Waste</span>
+          <h2 class="post-product-name">Conditioner Bar</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">Natural botanicals</span>
-            <span class="post-benefit-badge">Minimal processing</span>
-            <span class="post-benefit-badge">Eco and traditional appeal</span>
+            <span class="post-benefit-badge">Natural pair to the shampoo bar</span>
+            <span class="post-benefit-badge">Deeply moisturising</span>
+            <span class="post-benefit-badge">No plastic bottle</span>
           </div>
-          <p class="post-product-desc">Made with time-tested natural ingredients, this herbal bar brings a gentler, more traditional approach to hair washing. The formulation skips synthetic detergents entirely, relying instead on plant-based ingredients that are kinder to both your scalp and waterways. A good choice for anyone wanting to move away from chemical-heavy products.</p>
-          <p class="post-product-rec">Ideal for sensitive scalps and those who prefer clean, botanical ingredients.</p>
-          <a class="post-shop-btn" href="https://www.amazon.com/s?k=herbal+natural+shampoo+bar&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
+          <p class="post-product-desc">The natural companion to a shampoo bar, a conditioner bar nourishes and detangles without any plastic packaging at all. Most people who switch to a shampoo bar buy a conditioner bar at the same time, making this one of the best cross-sell opportunities in sustainable beauty. The formulas have improved significantly and leave hair genuinely soft and manageable.</p>
+          <p class="post-product-rec">If someone is already buying the shampoo bar, they almost always want this one too. Keep them side by side on the page.</p>
+          <a class="post-shop-btn" href="https://www.amazon.com/s?k=conditioner+bar+plastic+free&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
     </div>
 
     <hr class="post-rule">
 
-    <!-- 7. Organic Handmade Soap -->
+    <!-- 04. Organic Handmade Soap -->
     <div class="post-product-row">
-      <div id="organic-soap" class="post-product-card reverse">
+      <div class="post-product-card reverse">
         <div class="post-img-wrap">
           <img src="https://livingeco.github.io/assets/images/organic_handmade_soap.jpeg" alt="Organic Handmade Soap" loading="lazy">
         </div>
@@ -900,167 +802,167 @@ a { text-decoration: none; color: inherit; }
           <span class="post-product-tag">Body and Face · Clean</span>
           <h2 class="post-product-name">Organic Handmade Soap</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">No plastic bottles</span>
+            <span class="post-benefit-badge">No plastic bottle at all</span>
             <span class="post-benefit-badge">Multi-use face and body</span>
-            <span class="post-benefit-badge">Clean ingredients</span>
+            <span class="post-benefit-badge">Clean natural ingredients</span>
           </div>
-          <p class="post-product-desc">A thoughtfully made bar soap crafted with organic oils and plant extracts. Gentle enough for the face yet effective for the body, it replaces two or more products at once and comes in minimal or compostable packaging. The lather is rich, the scent is natural, and the plastic footprint is zero.</p>
-          <p class="post-product-rec">A versatile, clean-ingredient bar that simplifies your entire washing routine.</p>
+          <p class="post-product-desc">A thoughtfully made bar soap with organic oils and plant extracts that is gentle enough for the face yet effective for the whole body. It replaces two or more bottled products at once, comes in minimal or compostable wrapping, and has zero plastic footprint. The lather is rich, the scent comes entirely from natural botanicals, and nothing is wasted.</p>
+          <p class="post-product-rec">A versatile daily bar that simplifies the entire shower routine while cutting plastic completely.</p>
           <a class="post-shop-btn" href="https://www.amazon.com/s?k=organic+handmade+bar+soap&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
     </div>
 
-    <!-- ======== SECTION 2: UPGRADE YOUR ROUTINE ======== -->
-    <div id="upgrade" class="post-section-divider s2">
+    <!-- SECTION 2 -->
+    <div id="upgrade-routine" class="post-section-divider s2">
       <div class="post-section-divider-line"></div>
       <span class="post-section-divider-tag">Step 02 · Upgrade Your Routine</span>
       <div class="post-section-divider-line"></div>
     </div>
 
-    <!-- 4. Refillable Glass Serum Bottle -->
+    <!-- 05. Natural Deodorant Bar -->
     <div class="post-product-row">
-      <div id="glass-serum-bottle" class="post-product-card">
+      <div class="post-product-card">
         <div class="post-img-wrap">
-          <img src="https://livingeco.github.io/assets/images/serum_refill_bottle.jpeg" alt="Refillable Glass Serum Bottle" loading="lazy">
+          <img src="https://livingeco.github.io/assets/images/serum_refill_bottle.jpeg" alt="Natural Deodorant Bar" loading="lazy">
         </div>
         <div class="post-product-content">
           <div class="post-item-num">05</div>
-          <span class="post-product-tag">Skincare · Zero-Waste Packaging</span>
-          <h2 class="post-product-name">Refillable Glass Serum Bottle</h2>
+          <span class="post-product-tag">Body · Daily Essential</span>
+          <h2 class="post-product-name">Natural Deodorant Bar</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">Eliminates plastic packaging</span>
-            <span class="post-benefit-badge">Premium aesthetic</span>
-            <span class="post-benefit-badge">Encourages refill culture</span>
+            <span class="post-benefit-badge">No aluminium or parabens</span>
+            <span class="post-benefit-badge">Zero plastic packaging</span>
+            <span class="post-benefit-badge">Enormous search volume</span>
           </div>
-          <p class="post-product-desc">A sleek glass dropper bottle that replaces the plastic serum packaging most brands still use. Refill it with your favourite bulk or concentrated serum and the bottle lasts indefinitely. The dark glass also protects light-sensitive ingredients better than most plastic alternatives, making it both beautiful and genuinely functional.</p>
-          <p class="post-product-rec">The upgrade that makes your skincare shelf look and feel completely different.</p>
-          <a class="post-shop-btn" href="https://www.amazon.com/s?k=refillable+glass+serum+dropper+bottle&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
+          <p class="post-product-desc">Natural deodorant is one of the most-searched sustainable beauty products in the world right now and for good reason. A deodorant bar eliminates the plastic stick or spray bottle entirely and uses baking soda, shea butter, and plant-based oils to neutralise odour throughout the day. The transition from conventional deodorant takes about a week for most people, after which most never want to go back.</p>
+          <p class="post-product-rec">High search intent, daily-use product, strong affiliate conversion. One of the most valuable products on this page.</p>
+          <a class="post-shop-btn" href="https://www.amazon.com/s?k=natural+deodorant+bar+zero+waste&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
     </div>
 
     <hr class="post-rule">
 
-    <!-- 5. Glass Cream Jars -->
+    <!-- 06. Organic Face Oil -->
     <div class="post-product-row">
-      <div id="glass-cream-jars" class="post-product-card reverse">
+      <div class="post-product-card reverse">
         <div class="post-img-wrap">
-          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Glass Cream Jars" loading="lazy">
+          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Organic Face Oil in Dark Glass" loading="lazy">
         </div>
         <div class="post-product-content">
           <div class="post-item-num">06</div>
-          <span class="post-product-tag">Skincare · Moisturiser</span>
-          <h2 class="post-product-name">Glass Cream Jars</h2>
+          <span class="post-product-tag">Skincare · Treatment</span>
+          <h2 class="post-product-name">Organic Face Oil</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">Long-term reusable</span>
-            <span class="post-benefit-badge">Luxury and eco look</span>
-            <span class="post-benefit-badge">Ideal for minimalist routines</span>
+            <span class="post-benefit-badge">Rosehip or castor oil</span>
+            <span class="post-benefit-badge">Dark glass bottle included</span>
+            <span class="post-benefit-badge">Multi-use for face and lashes</span>
           </div>
-          <p class="post-product-desc">Wide-mouth glass jars designed to hold moisturisers, balms, and face creams. They clean easily, last for years, and look far more premium on a bathroom shelf than any plastic tub. Once you transfer your favourite cream into one of these, you will not want to go back to flimsy plastic lids and containers that crack within months.</p>
-          <p class="post-product-rec">A simple swap that transforms your daily skincare routine instantly.</p>
-          <a class="post-shop-btn" href="https://www.amazon.com/s?k=glass+cream+jars+cosmetic&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
+          <p class="post-product-desc">A pure, cold-pressed organic oil such as rosehip or castor oil replaces several plastic-packaged serums and treatments at once. Rosehip is rich in vitamin C and naturally brightening. Castor oil supports lash and brow growth and doubles as a deeply nourishing overnight treatment. Both come in small dark glass bottles that protect the oil quality and look beautiful on any bathroom shelf.</p>
+          <p class="post-product-rec">A high-value, multi-use product that works for face, lashes, brows, and cuticles. Visitors who discover this rarely stop buying it.</p>
+          <a class="post-shop-btn" href="https://www.amazon.com/s?k=organic+rosehip+oil+dark+glass&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
     </div>
 
     <hr class="post-rule">
 
-    <!-- 6. Amber Glass Bottle -->
+    <!-- 07. Solid Lotion Bar -->
     <div class="post-product-row">
-      <div id="amber-glass-bottle" class="post-product-card">
+      <div class="post-product-card">
         <div class="post-img-wrap">
-          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Amber Glass Bottle for Facial Oils" loading="lazy">
+          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Solid Lotion Bar" loading="lazy">
         </div>
         <div class="post-product-content">
           <div class="post-item-num">07</div>
-          <span class="post-product-tag">Skincare · Facial Oils</span>
-          <h2 class="post-product-name">Amber Glass Bottle</h2>
+          <span class="post-product-tag">Body · Moisturiser</span>
+          <h2 class="post-product-name">Solid Lotion Bar</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">Protects product quality</span>
-            <span class="post-benefit-badge">Refillable and durable</span>
-            <span class="post-benefit-badge">Used in clean beauty brands</span>
+            <span class="post-benefit-badge">Replaces body lotion entirely</span>
+            <span class="post-benefit-badge">Zero plastic packaging</span>
+            <span class="post-benefit-badge">Concentrated and long-lasting</span>
           </div>
-          <p class="post-product-desc">Amber glass is the professional standard for storing facial oils because it genuinely blocks UV light that degrades active ingredients over time. A refillable amber bottle keeps your oil fresher for longer and looks beautiful alongside any skincare collection. It is the kind of practical upgrade that also happens to be deeply satisfying to use every morning.</p>
-          <p class="post-product-rec">The right way to store facial oil if you care about product quality and sustainability together.</p>
-          <a class="post-shop-btn" href="https://www.amazon.com/s?k=amber+glass+dropper+bottle+skincare&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
+          <p class="post-product-desc">A solid bar made from shea butter, beeswax, and plant oils that melts on contact with skin and absorbs quickly without any greasy residue. One bar replaces multiple bottles of body lotion and the packaging is either paper or completely naked. Warming it between your hands for a second before applying makes the whole experience feel genuinely luxurious rather than like a compromise.</p>
+          <p class="post-product-rec">A satisfying, effective swap that converts well because the product genuinely performs and the eco credentials are obvious.</p>
+          <a class="post-shop-btn" href="https://www.amazon.com/s?k=solid+lotion+bar+zero+waste&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
     </div>
 
-    <!-- ======== SECTION 3: MINIMALIST ESSENTIALS ======== -->
-    <div id="minimalist" class="post-section-divider s3">
-      <div class="post-section-divider-line"></div>
-      <span class="post-section-divider-tag">Step 03 · Minimalist Essentials</span>
-      <div class="post-section-divider-line"></div>
-    </div>
+    <hr class="post-rule">
 
-    <!-- 8. Reusable Bamboo Cotton Pads -->
+    <!-- 08. Reef-Safe Mineral Sunscreen -->
     <div class="post-product-row">
-      <div id="bamboo-cotton-pads" class="post-product-card reverse">
+      <div class="post-product-card reverse">
         <div class="post-img-wrap">
-          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Reusable Bamboo Cotton Pads" loading="lazy">
+          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Reef-Safe Mineral Sunscreen" loading="lazy">
         </div>
         <div class="post-product-content">
           <div class="post-item-num">08</div>
-          <span class="post-product-tag">Skincare · Premium Alternative</span>
-          <h2 class="post-product-name">Reusable Bamboo Cotton Pads</h2>
+          <span class="post-product-tag">Skincare · Sun Care</span>
+          <h2 class="post-product-name">Reef-Safe Mineral Sunscreen</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">More durable than cotton</span>
-            <span class="post-benefit-badge">Eco-luxury feel</span>
-            <span class="post-benefit-badge">Great for toner application</span>
+            <span class="post-benefit-badge">No oxybenzone or octinoxate</span>
+            <span class="post-benefit-badge">Safe for coral reefs</span>
+            <span class="post-benefit-badge">Broad spectrum SPF protection</span>
           </div>
-          <p class="post-product-desc">A premium step up from standard reusable cotton rounds. The bamboo blend feels noticeably softer and more substantial on the skin, making your toner or essence application feel like a proper ritual rather than a quick wipe. They wash beautifully, hold their shape well, and last considerably longer than standard cotton alternatives.</p>
-          <p class="post-product-rec">Worth choosing if you want your sustainable routine to feel genuinely luxurious.</p>
-          <a class="post-shop-btn" href="https://www.amazon.com/s?k=reusable+bamboo+cotton+pads+skincare&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
+          <p class="post-product-desc">Most conventional sunscreens contain oxybenzone and octinoxate, two chemicals proven to bleach and destroy coral reefs. A reef-safe mineral sunscreen uses zinc oxide instead, which sits on top of the skin and provides broad spectrum protection without harming marine ecosystems. This is one of the fastest growing categories in sustainable beauty and search volume for reef-safe SPF is climbing sharply in 2026.</p>
+          <p class="post-product-rec">Strong eco story, strong health case, and a product that every visitor uses. One of the most shareable product recommendations on this page.</p>
+          <a class="post-shop-btn" href="https://www.amazon.com/s?k=reef+safe+mineral+sunscreen+zinc+oxide&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
     </div>
 
-    <hr class="post-rule">
+    <!-- SECTION 3 -->
+    <div id="finishing-touches" class="post-section-divider s3">
+      <div class="post-section-divider-line"></div>
+      <span class="post-section-divider-tag">Step 03 · Finishing Touches</span>
+      <div class="post-section-divider-line"></div>
+    </div>
 
-    <!-- 9. Multipurpose Glass Storage Jars -->
+    <!-- 09. Gua Sha Stone -->
     <div class="post-product-row">
-      <div id="glass-storage-jars-diy" class="post-product-card">
+      <div class="post-product-card">
         <div class="post-img-wrap">
-          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Multipurpose Glass Storage Jars for DIY Beauty" loading="lazy">
+          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Gua Sha Facial Stone" loading="lazy">
         </div>
         <div class="post-product-content">
           <div class="post-item-num">09</div>
-          <span class="post-product-tag">DIY Beauty · Storage</span>
-          <h2 class="post-product-name">Multipurpose Glass Storage Jars</h2>
+          <span class="post-product-tag">Skincare · Tool</span>
+          <h2 class="post-product-name">Gua Sha Facial Stone</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">Encourages DIY skincare</span>
-            <span class="post-benefit-badge">Reduces product purchases</span>
-            <span class="post-benefit-badge">Premium aesthetic appeal</span>
+            <span class="post-benefit-badge">Zero waste by nature</span>
+            <span class="post-benefit-badge">Lasts a lifetime</span>
+            <span class="post-benefit-badge">Trending strongly in 2026</span>
           </div>
-          <p class="post-product-desc">Small glass jars are endlessly useful in a sustainable beauty setup. Use them to store homemade face masks, DIY lip balm, your own whipped body butter, or leftover product you want to keep fresh. Having a set of clean, reusable jars on hand naturally encourages you to make rather than buy, which is one of the most effective ways to reduce both waste and spending.</p>
-          <p class="post-product-rec">A versatile staple for anyone who enjoys making their own natural beauty products.</p>
-          <a class="post-shop-btn" href="https://www.amazon.com/s?k=small+glass+jars+DIY+cosmetic&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
+          <p class="post-product-desc">A smooth jade or rose quartz stone used to massage the face, reduce puffiness, improve circulation, and lift facial contours. Gua sha has deep roots in traditional Chinese medicine and has become one of the most widely recommended tools in modern skincare. The stone itself produces zero waste, lasts indefinitely with basic care, and pairs naturally with the face oil above to create a complete daily ritual.</p>
+          <p class="post-product-rec">A trending, highly giftable product with genuine wellness benefits. Pairs directly with the face oil to create a complete skincare pairing.</p>
+          <a class="post-shop-btn" href="https://www.amazon.com/s?k=gua+sha+stone+jade+rose+quartz&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
     </div>
 
     <hr class="post-rule">
 
-    <!-- 10. Refillable Travel Containers -->
+    <!-- 10. Natural Lip Balm -->
     <div class="post-product-row">
-      <div id="refillable-travel-containers" class="post-product-card reverse">
+      <div class="post-product-card reverse">
         <div class="post-img-wrap">
-          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Refillable Travel Containers" loading="lazy">
+          <img src="https://livingeco.github.io/assets/images/Shampoo_bar.jpeg" alt="Natural Lip Balm in Plastic-Free Tin" loading="lazy">
         </div>
         <div class="post-product-content">
           <div class="post-item-num">10</div>
-          <span class="post-product-tag">Travel · Minimalist Beauty</span>
-          <h2 class="post-product-name">Refillable Travel Containers</h2>
+          <span class="post-product-tag">Lips · Daily Essential</span>
+          <h2 class="post-product-name">Natural Lip Balm</h2>
           <div class="post-product-benefits">
-            <span class="post-benefit-badge">Perfect for travel</span>
-            <span class="post-benefit-badge">Reduces single-use minis</span>
-            <span class="post-benefit-badge">Highly practical</span>
+            <span class="post-benefit-badge">Compostable or tin packaging</span>
+            <span class="post-benefit-badge">Beeswax and shea butter formula</span>
+            <span class="post-benefit-badge">Every person uses this daily</span>
           </div>
-          <p class="post-product-desc">Compact, leak-proof containers that you fill yourself from your full-size products at home. They eliminate the need for those wasteful single-use travel minis that are expensive, often low quality, and account for a surprising amount of plastic waste. A set of refillable containers is one of those small investments that genuinely changes your relationship with travel packing.</p>
-          <p class="post-product-rec">The last travel bottles you will ever need to buy.</p>
-          <a class="post-shop-btn" href="https://www.amazon.com/s?k=refillable+travel+containers+TSA&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
+          <p class="post-product-desc">A natural lip balm in a small tin or compostable tube using beeswax, shea butter, and plant oils in place of the petroleum-based formulas most conventional brands rely on. It is deeply nourishing, free from synthetic fragrance, and leaves lips genuinely soft rather than creating a cycle of dependency the way many conventional balms do. The packaging creates zero plastic waste and the price is accessible for almost every visitor.</p>
+          <p class="post-product-rec">One of the easiest impulse purchases on this page. Low price, daily use, and zero guilt. A natural add-on to almost any order.</p>
+          <a class="post-shop-btn" href="https://www.amazon.com/s?k=natural+lip+balm+beeswax+tin&linkCode=ll2&tag=clickncurate2-20" target="_blank" rel="noopener noreferrer">Shop Now</a>
         </div>
       </div>
     </div>
@@ -1068,9 +970,7 @@ a { text-decoration: none; color: inherit; }
   </div>
 </div>
 
-<!-- ============================================================
-     CLOSING QUOTE
-     ============================================================ -->
+<!-- CLOSING QUOTE -->
 <div class="post-closing-quote">
   <div class="post-closing-quote-inner">
     <blockquote>
@@ -1084,13 +984,10 @@ a { text-decoration: none; color: inherit; }
   <a class="post-back-link" href="https://livingeco.github.io/index.html">Back to Sustainable Living</a>
 </div>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
+<!-- FOOTER -->
 <footer class="eco-footer">
   <div class="eco-footer-accent-top"></div>
   <div class="eco-footer-inner">
-
     <div class="eco-footer-top">
       <a class="eco-footer-brand" href="https://livingeco.github.io/index.html" rel="home">
         <img src="https://livingeco.github.io/assets/images/cropped-a-modern-elegant-withouttext_JPG.jpg"
@@ -1115,7 +1012,6 @@ a { text-decoration: none; color: inherit; }
         </div>
       </div>
     </div>
-
     <div class="eco-footer-mid">
       <div class="eco-footer-about">
         <p class="eco-footer-col-title">About</p>
@@ -1138,12 +1034,10 @@ a { text-decoration: none; color: inherit; }
         </ul>
       </div>
     </div>
-
     <div class="eco-footer-bottom">
       <p class="eco-footer-copyright">© 2026 Living Eco &nbsp;·&nbsp; Sustainable Living &amp; Zero Waste Lifestyle. All rights reserved.</p>
       <span class="eco-footer-badge">Zero Waste Since 2019</span>
     </div>
-
   </div>
 </footer>
 
