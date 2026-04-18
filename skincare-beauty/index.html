@@ -609,6 +609,40 @@ a { text-decoration: none; color: inherit; }
 .post-hero h1        { animation: ecoFadeUp 0.5s ease 0.2s both; }
 .post-hero-meta      { animation: ecoFadeUp 0.5s ease 0.3s both; }
 </style>
+
+<style>
+
+/* Remove WordPress body padding that causes white gaps */
+body {
+  --wp--style--root--padding-right: 0px !important;
+  --wp--style--root--padding-left:  0px !important;
+}
+
+/* Zero out any inherited side padding on the site blocks wrapper */
+.wp-site-blocks {
+  padding-left:  0 !important;
+  padding-right: 0 !important;
+}
+
+/* Force these sections to stretch full viewport width */
+.post-closing-quote,
+.post-back-band,
+.eco-footer {
+  width: 100vw;
+  margin-left:  calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
+  margin-top: 0 !important;
+  margin-block-start: 0 !important;
+}
+
+/* Prevent any horizontal scrollbar */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+</style>
 </head>
 
 <body>
