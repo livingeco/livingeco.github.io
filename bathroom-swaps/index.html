@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Eco-Friendly Bathroom Swaps You Can Make This Week | Living Eco</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #2D6A4F;
+    --green-mid: #40916C;
+    --green-light: #52B788;
+    --green-pale: #D8F3DC;
+    --green-wash: #F0FAF3;
+    --text: #1B1B1B;
+    --muted: #6B7B6E;
+    --bg: #FAFDF9;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--green-pale);
+    padding: 16px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--green-dark);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { font-style: italic; color: var(--green-light); }
+  .nav-tag {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, var(--green-wash) 0%, var(--white) 60%);
+    padding: 80px 32px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(82,183,136,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(45,106,79,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .category-tag {
+    display: inline-block;
+    background: var(--green-pale);
+    color: var(--green-dark);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    color: var(--green-dark);
+    line-height: 1.2;
+    max-width: 760px;
+    margin: 0 auto 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green-light);
+  }
+  .hero .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    font-weight: 300;
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+  .hero-meta {
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    font-size: 0.8rem; color: var(--muted);
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* LAYOUT */
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* INTRO SECTION */
+  .intro-section {
+    padding: 64px 0 48px;
+  }
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .intro-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--green-dark);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  .intro-section p {
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--green-wash);
+    border-left: 4px solid var(--green-light);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin: 40px 0;
+    font-style: italic;
+    color: var(--green-dark);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .callout::before { content: '💚  '; font-style: normal; }
+
+  /* DIVIDER */
+  hr {
+    border: none;
+    border-top: 1px solid var(--green-pale);
+    margin: 48px 0;
+  }
+
+  /* SWAPS */
+  .swaps-section { padding: 0 0 48px; }
+  .swaps-section > h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--green-dark);
+    margin-bottom: 8px;
+  }
+  .swaps-section > p.lead {
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 48px;
+    font-size: 1rem;
+  }
+
+  .swap-card {
+    background: var(--white);
+    border: 1px solid var(--green-pale);
+    border-radius: 16px;
+    padding: 32px 32px 28px;
+    margin-bottom: 24px;
+    position: relative;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .swap-card:hover {
+    box-shadow: 0 8px 32px rgba(45,106,79,0.08);
+    transform: translateY(-2px);
+  }
+  .swap-number {
+    position: absolute;
+    top: -14px; left: 28px;
+    background: var(--green-dark);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .swap-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--green-dark);
+    margin-bottom: 4px;
+    margin-top: 8px;
+  }
+  .swap-replace {
+    font-size: 0.78rem;
+    color: var(--green-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .swap-replace::before {
+    content: '';
+    display: inline-block;
+    width: 14px; height: 1px;
+    background: var(--green-light);
+  }
+  .swap-why {
+    color: var(--text);
+    font-weight: 300;
+    margin-bottom: 18px;
+    line-height: 1.7;
+  }
+  .swap-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--green-pale);
+  }
+  .swap-tip, .swap-impact {
+    background: var(--green-wash);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.88rem;
+  }
+  .swap-tip strong, .swap-impact strong {
+    display: block;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  .swap-tip p, .swap-impact p {
+    color: var(--muted);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+  .swap-impact strong { color: var(--green-dark); }
+
+  /* WHERE TO START */
+  .start-section {
+    background: var(--green-dark);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 48px 40px;
+    margin: 48px 0;
+  }
+  .start-section .section-label { color: var(--green-light); }
+  .start-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .start-section p {
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+  .start-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .start-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: rgba(255,255,255,0.88);
+    font-size: 0.95rem;
+    font-weight: 300;
+  }
+  .start-list li .num {
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-size: 0.7rem;
+    font-weight: 600;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* BUDGET / CLOSING */
+  .prose-section {
+    padding: 16px 0 48px;
+  }
+  .prose-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--green-dark);
+    margin-bottom: 20px;
+  }
+  .prose-section p {
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+
+  /* FOOTER */
+  .post-footer {
+    border-top: 1px solid var(--green-pale);
+    padding: 40px 0 64px;
+    text-align: center;
+  }
+  .post-footer .sig {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--green-light);
+    margin-bottom: 12px;
+  }
+  .post-footer p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .hero { padding: 56px 20px 40px; }
+    .container { padding: 0 16px; }
+    .swap-card { padding: 28px 20px 22px; }
+    .swap-footer { grid-template-columns: 1fr; }
+    .start-section { padding: 36px 24px; }
+    nav { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Living<span>Eco</span></a>
+  <span class="nav-tag">Sustainable Hygiene</span>
+</nav>
+
+<div class="hero">
+  <span class="category-tag">Sustainable Hygiene</span>
+  <h1>10 Eco-Friendly Bathroom Swaps<br><em>You Can Make This Week</em></h1>
+  <p class="subtitle">Simple, plastic-free alternatives for the most wasteful room in your home.</p>
+  <div class="hero-meta">
+    <span>🌿 10 swaps</span>
+    <span>·</span>
+    <span>💰 Most save money long-term</span>
+    <span>·</span>
+    <span>♻️ Zero learning curve</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <section class="intro-section">
+    <p class="section-label">Why the Bathroom?</p>
+    <h2>The Most Overlooked Room in Your Home</h2>
+    <p>Most people think about the kitchen first when going zero-waste: reusable bags, glass jars, bamboo utensils. But the bathroom is quietly one of the biggest sources of single-use plastic in the home.</p>
+    <p>Think about everything you go through in a year: shampoo bottles, conditioner bottles, face wash, razors, cotton pads, toothbrushes, deodorant sticks. Nearly all of it comes in plastic, and almost none of it gets recycled.</p>
+    <p>The good news? The bathroom is also one of the easiest rooms to overhaul. Most swaps cost the same as or less than what you are already buying, and many of them actually work better.</p>
+    <p>Here are 10 swaps you can make this week, starting with the simplest ones and working up to the ones that take a little more adjustment.</p>
+
+    <div class="callout">
+      You don't need to do all 10 at once. Start with one. When you run out of your current product, swap it for the eco version. That's it.
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="swaps-section">
+    <p class="section-label">The Swaps</p>
+    <h2>10 Simple Switches</h2>
+    <p class="lead">Each one is a direct, like-for-like replacement. No lifestyle overhaul required.</p>
+
+    <!-- 01 -->
+    <div class="swap-card">
+      <span class="swap-number">01</span>
+      <h3>Bamboo Toothbrush</h3>
+      <div class="swap-replace">Replace: Plastic toothbrush</div>
+      <p class="swap-why">The average person uses 300 plastic toothbrushes in their lifetime and almost none of them ever decompose. Bamboo toothbrushes have a biodegradable handle and work just as well as plastic ones. Simply remove the bristles before composting the handle.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Look for ones with BPA-free nylon bristles. Replace every 3 months, just like a regular toothbrush.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Saves about 4 plastic toothbrushes per year, per person.</p></div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="swap-card">
+      <span class="swap-number">02</span>
+      <h3>Shampoo Bar and Conditioner Bar</h3>
+      <div class="swap-replace">Replace: Plastic shampoo and conditioner bottles</div>
+      <p class="swap-why">Over 550 million shampoo bottles end up in landfill every year. A shampoo bar lasts as long as 2 to 3 bottles, has zero plastic packaging, and is compact enough to take anywhere. Many people find their hair actually improves once it adjusts.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Give your hair a 2 to 3 week transition period when switching. Hard water can make bars less effective, so a diluted apple cider vinegar rinse helps in those areas.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Replaces 4 to 6 plastic bottles per year.</p></div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="swap-card">
+      <span class="swap-number">03</span>
+      <h3>Safety Razor</h3>
+      <div class="swap-replace">Replace: Disposable plastic razors</div>
+      <p class="swap-why">Disposable razors are made of mixed plastics and metal, which makes them completely unrecyclable. A safety razor is a one-time purchase that lasts years or even decades. Only the thin metal blade is replaced, and blades are 100% recyclable.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Blades are incredibly cheap, around £5 to £10 for 100. Start with a mild, forgiving razor if you are new to it.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Saves hundreds of plastic razors over a lifetime.</p></div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="swap-card">
+      <span class="swap-number">04</span>
+      <h3>Reusable Cotton Rounds / Facial Pads</h3>
+      <div class="swap-replace">Replace: Disposable cotton pads</div>
+      <p class="swap-why">Cotton pads are used for about 30 seconds and then thrown away. Reusable pads made from organic cotton or bamboo do the exact same job, wash beautifully, and last for years. They come in mesh laundry bags for easy washing.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Keep a small wet bag next to your sink to collect used pads between washes.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Replaces 700 to 1000 or more disposable pads per year.</p></div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="swap-card">
+      <span class="swap-number">05</span>
+      <h3>Refillable Deodorant</h3>
+      <div class="swap-replace">Replace: Single-use plastic deodorant sticks</div>
+      <p class="swap-why">Most plastic deodorant sticks cannot be recycled. Refillable deodorants use the same outer case indefinitely and you simply swap in a new refill. Natural deodorants also tend to use cleaner, skin-friendly ingredients.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Natural deodorants may need a 2 to 4 week adjustment period as your body recalibrates. Stick with it.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Cuts deodorant plastic waste by up to 90%.</p></div>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="swap-card">
+      <span class="swap-number">06</span>
+      <h3>Solid Facial Cleanser or Cleansing Balm in Glass</h3>
+      <div class="swap-replace">Replace: Face wash in plastic bottles</div>
+      <p class="swap-why">Liquid face washes are mostly water wrapped in plastic. Solid facial cleansers are concentrated, plastic-free, and last much longer. Alternatively, look for face washes in glass jars with metal lids, which are infinitely recyclable.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Store your solid cleanser on a soap dish that drains well to extend its life.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Eliminates 2 to 4 plastic bottles per year.</p></div>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="swap-card">
+      <span class="swap-number">07</span>
+      <h3>Bamboo or Stainless Steel Hairbrush</h3>
+      <div class="swap-replace">Replace: Plastic hairbrush</div>
+      <p class="swap-why">Plastic hairbrushes are nearly impossible to recycle. Bamboo-handled brushes with natural bristles are biodegradable, gentle on the scalp, and often better for reducing frizz. Stainless steel brushes are virtually indestructible.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Clean your brush weekly by removing trapped hair and gently washing the base with a little diluted shampoo.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>One brush can last 5 to 10 or more years versus replacing plastic ones every year or two.</p></div>
+      </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="swap-card">
+      <span class="swap-number">08</span>
+      <h3>Bar Soap (Naked / Unwrapped)</h3>
+      <div class="swap-replace">Replace: Liquid soap in plastic pump bottles</div>
+      <p class="swap-why">Liquid soap uses up to 5 times more energy to produce than bar soap and comes in plastic that is rarely recycled. A simple, unwrapped bar of soap, or one wrapped in paper, is one of the easiest and cheapest swaps you can make.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Use a wooden or ceramic soap dish to keep the bar dry between uses. It will last much longer.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Replaces 3 to 5 plastic pump bottles per year.</p></div>
+      </div>
+    </div>
+
+    <!-- 09 -->
+    <div class="swap-card">
+      <span class="swap-number">09</span>
+      <h3>Menstrual Cup or Reusable Period Products</h3>
+      <div class="swap-replace">Replace: Disposable pads and tampons</div>
+      <p class="swap-why">The average person uses between 5,000 and 15,000 disposable period products in their lifetime, most of which contain plastics and end up in landfill or waterways. A menstrual cup lasts up to 10 years. Reusable pads and period underwear are equally low-waste alternatives.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Menstrual cups have a learning curve, so give yourself 2 to 3 cycles to get comfortable. Period underwear is a great low-commitment starting point.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Potentially eliminates thousands of single-use items over a lifetime.</p></div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="swap-card">
+      <span class="swap-number">10</span>
+      <h3>Plastic-Free Toilet Paper</h3>
+      <div class="swap-replace">Replace: Plastic-wrapped toilet roll</div>
+      <p class="swap-why">Most toilet paper arrives wrapped in plastic film that goes straight to landfill. Bamboo toilet paper is softer, more sustainable than wood pulp, and almost always comes wrapped in paper or cardboard packaging. Some brands also plant trees with every purchase.</p>
+      <div class="swap-footer">
+        <div class="swap-tip"><strong>Tip</strong><p>Buy in bulk to reduce packaging further and save money per roll.</p></div>
+        <div class="swap-impact"><strong>Impact</strong><p>Removes significant plastic from your weekly shop.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE TO START -->
+  <div class="start-section">
+    <p class="section-label">Getting Started</p>
+    <h2>Where to Begin</h2>
+    <p>If you are just beginning your bathroom zero-waste journey, here is a simple order to follow. Start with the items you run out of first, and replace each one as it empties.</p>
+    <ul class="start-list">
+      <li><span class="num">1</span><span>Bar soap: easiest swap, costs less, no adjustment needed</span></li>
+      <li><span class="num">2</span><span>Bamboo toothbrush: direct replacement, zero learning curve</span></li>
+      <li><span class="num">3</span><span>Reusable cotton rounds: game changer for your skincare routine</span></li>
+      <li><span class="num">4</span><span>Shampoo bar: biggest visual impact on plastic reduction</span></li>
+      <li><span class="num">5</span><span>Safety razor: upfront cost pays off within 2 to 3 months</span></li>
+    </ul>
+  </div>
+
+  <section class="prose-section">
+    <h2>A Note on Budget</h2>
+    <p>Many people assume eco-friendly products cost more. Some do have a higher upfront cost (a safety razor, for example), but almost all of them work out cheaper over time because they last so much longer.</p>
+    <p>A set of reusable cotton rounds costs around £8 to £12 and replaces £30 to £40 worth of disposable pads per year. A shampoo bar replaces 2 to 3 bottles. A safety razor pays itself back in blade savings within a few months.</p>
+    <p>Going plastic-free in the bathroom is not just better for the planet. Over the course of a year, it is almost always better for your wallet too.</p>
+  </section>
+
+  <hr>
+
+  <section class="prose-section">
+    <h2>Final Thoughts</h2>
+    <p>The bathroom generates more single-use plastic than almost any other room in the home, but it is also one of the most satisfying places to make changes. The products are simple, the swaps are easy to find, and the results are immediate.</p>
+    <p>You do not need to overhaul everything at once. Pick one swap this week. Notice how easy it was. Then pick another one next month.</p>
+    <p>That is how sustainable living actually works: not a dramatic overnight transformation, but a quiet, steady series of better choices that add up to something meaningful over time.</p>
+
+    <div class="callout">
+      Sustainability isn't about perfection. Every swap you make, however small, genuinely matters.
+    </div>
+  </section>
+
+  <div class="post-footer">
+    <p class="sig">Living Eco</p>
+    <p>Practical guides and honest inspiration for a simpler, lower-waste life.</p>
+  </div>
+
+</div>
+</body>
+</html>
