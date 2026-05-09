@@ -15,7 +15,7 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(120deg, #a8e6cf, #dcedc1, #ffd3b6);
       background-size: 300% 300%;
-      animation: gradientShift 10s ease infinite;
+      animation: gradientShift 12s ease infinite;
       overflow: hidden;
       color: #2e2e2e;
     }
@@ -23,6 +23,7 @@
     .container {
       text-align: center;
       animation: fadeIn 2s ease-in-out;
+      z-index: 2;
     }
 
     h1 {
@@ -40,11 +41,11 @@
 
     .leaf {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: url('https://cdn-icons-png.flaticon.com/512/765/765494.png') no-repeat center/contain;
+      width: 30px;
+      height: 30px;
+      fill: #2e7d32;
       opacity: 0.7;
-      animation: fall 10s linear infinite;
+      animation: fall 12s linear infinite;
     }
 
     @keyframes gradientShift {
@@ -80,15 +81,20 @@
     <p>We’re nurturing something beautiful for a greener tomorrow.</p>
   </div>
 
-  <!-- Floating leaves -->
+  <!-- Floating SVG leaves -->
   <script>
-    for (let i = 0; i < 15; i++) {
+    const leafSVG = `<svg class="leaf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 2C8 2 4 6 4 10c0 6 8 12 8 12s8-6 8-12c0-4-4-8-8-8z"/>
+    </svg>`;
+
+    for (let i = 0; i < 12; i++) {
       const leaf = document.createElement('div');
-      leaf.classList.add('leaf');
-      leaf.style.left = Math.random() * 100 + 'vw';
-      leaf.style.animationDelay = Math.random() * 10 + 's';
-      leaf.style.transform = `rotate(${Math.random() * 360}deg)`;
-      document.body.appendChild(leaf);
+      leaf.innerHTML = leafSVG;
+      const svg = leaf.firstChild;
+      svg.style.left = Math.random() * 100 + 'vw';
+      svg.style.animationDelay = Math.random() * 10 + 's';
+      svg.style.transform = `rotate(${Math.random() * 360}deg)`;
+      document.body.appendChild(svg);
     }
   </script>
 </body>
