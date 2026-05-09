@@ -109,20 +109,14 @@
 
   <!-- Flowing SVG leaves -->
   <script>
-    const leafSVG = `<svg class="leaf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <path d="M32 2C20 2 8 14 8 28c0 18 24 34 24 34s24-16 24-34C56 14 44 2 32 2z"/>
-</svg>`;
+  for (let i = 0; i < 15; i++) {
+    const orb = document.createElement('div');
+    orb.classList.add('orb');
+    orb.style.top = Math.random() * 100 + 'vh';
+    orb.style.animationDelay = Math.random() * 10 + 's';
+    document.body.appendChild(orb);
+  }
+</script>
 
-
-    for (let i = 0; i < 20; i++) {
-      const leaf = document.createElement('div');
-      leaf.innerHTML = leafSVG;
-      const svg = leaf.firstChild;
-      svg.style.top = Math.random() * 100 + 'vh';
-      svg.style.animationDelay = Math.random() * 20 + 's';
-      svg.style.transform = `rotate(${Math.random() * 360}deg)`;
-      document.body.appendChild(svg);
-    }
-  </script>
 </body>
 </html>
