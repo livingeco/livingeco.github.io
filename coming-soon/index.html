@@ -45,7 +45,7 @@
       height: 30px;
       fill: #2e7d32;
       opacity: 0.7;
-      animation: fall 12s linear infinite;
+      animation: drift 15s linear infinite;
     }
 
     @keyframes gradientShift {
@@ -69,9 +69,9 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fall {
-      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    @keyframes drift {
+      0% { transform: translateX(-10vw) rotate(0deg); opacity: 1; }
+      100% { transform: translateX(110vw) rotate(360deg); opacity: 0.8; }
     }
   </style>
 </head>
@@ -81,17 +81,17 @@
     <p>We’re nurturing something beautiful for a greener tomorrow.</p>
   </div>
 
-  <!-- Floating SVG leaves -->
+  <!-- Flowing SVG leaves -->
   <script>
     const leafSVG = `<svg class="leaf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M12 2C8 2 4 6 4 10c0 6 8 12 8 12s8-6 8-12c0-4-4-8-8-8z"/>
     </svg>`;
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 15; i++) {
       const leaf = document.createElement('div');
       leaf.innerHTML = leafSVG;
       const svg = leaf.firstChild;
-      svg.style.left = Math.random() * 100 + 'vw';
+      svg.style.top = Math.random() * 100 + 'vh';
       svg.style.animationDelay = Math.random() * 10 + 's';
       svg.style.transform = `rotate(${Math.random() * 360}deg)`;
       document.body.appendChild(svg);
