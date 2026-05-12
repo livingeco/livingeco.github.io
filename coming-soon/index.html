@@ -96,6 +96,26 @@
       100% { transform: translateX(110vw) rotate(360deg); opacity: 0.8; }
     }
   </style>
+  <style>
+    /* Small test button */
+    #testBtn {
+      position: absolute;
+      bottom: 15px;   /* adjust position */
+      right: 15px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background: #2e7d32;   /* eco green */
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    #testBtn:hover {
+      background: #1b5e20;
+    }
+  </style>
 </head>
 <body>
   <header>LivingEco</header>
@@ -118,6 +138,10 @@
     document.body.appendChild(drop);
   }
 </script>
+
+<button id="testBtn" onclick="window.location.href='comingsoon.html'">
+    Test Page
+  </button>
 
 
 </body>
