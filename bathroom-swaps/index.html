@@ -47,27 +47,10 @@ img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
 
 /* ── HEADER (untouched) ───────────────────────────────────── */
-.site-header {
-  background-color: var(--eco-bg);
-  padding: 0; position: relative; overflow: hidden; z-index: 100;
-}
-.site-header::before {
-  content: ''; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 55% 90% at 82% 50%, rgba(34,90,44,0.30) 0%, transparent 68%),
-    radial-gradient(ellipse 35% 70% at 12% 50%, rgba(20,60,28,0.25) 0%, transparent 60%);
-  pointer-events: none;
-}
-.site-header::after {
-  content: ''; position: absolute; inset: 0; opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(-35 36 36)'/%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(35 36 36)'/%3E%3C/svg%3E");
-  background-size: 72px 72px; pointer-events: none;
-}
-.header-top-strip {
-  background: rgba(255,255,255,0.04); border-bottom: 0.5px solid rgba(255,255,255,0.08);
-  padding: 6px 2rem; display: flex; justify-content: space-between; align-items: center;
-  position: relative; z-index: 1;
-}
+.site-header { background-color: var(--eco-bg); padding: 0; position: relative; overflow: hidden; z-index: 100; }
+.site-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 90% at 82% 50%, rgba(34,90,44,0.30) 0%, transparent 68%), radial-gradient(ellipse 35% 70% at 12% 50%, rgba(20,60,28,0.25) 0%, transparent 60%); pointer-events: none; }
+.site-header::after { content: ''; position: absolute; inset: 0; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(-35 36 36)'/%3E%3Cellipse cx='36' cy='36' rx='7' ry='18' fill='%23ffffff' transform='rotate(35 36 36)'/%3E%3C/svg%3E"); background-size: 72px 72px; pointer-events: none; }
+.header-top-strip { background: rgba(255,255,255,0.04); border-bottom: 0.5px solid rgba(255,255,255,0.08); padding: 6px 2rem; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
 .header-strip-left { font-size: 10.5px; letter-spacing: 0.14em; color: rgba(255,255,255,0.42); font-weight: 300; text-transform: uppercase; }
 .header-strip-right { display: flex; align-items: center; gap: 14px; }
 .eco-badge { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--eco-accent); border: 0.5px solid var(--eco-accent-dim); padding: 2px 8px; border-radius: 2px; font-weight: 400; opacity: 0.85; }
@@ -98,60 +81,70 @@ a { text-decoration: none; color: inherit; }
 .header-accent-line { height: 0.5px; background: linear-gradient(90deg, transparent, var(--eco-accent-dim) 20%, rgba(167,213,120,0.3) 50%, var(--eco-accent-dim) 80%, transparent); position: relative; z-index: 1; }
 
 /* ── HERO ─────────────────────────────────────────────────── */
-.lux-hero {
-  position: relative; background: var(--lux-bg-dark);
-  overflow: hidden; min-height: 92vh;
-}
-.lux-hero-image-wrap {
-  position: absolute; inset: 0; overflow: hidden;
-}
+.lux-hero { position: relative; background: var(--lux-bg-dark); overflow: hidden; min-height: 92vh; }
+.lux-hero-image-wrap { position: absolute; inset: 0; overflow: hidden; }
 .lux-hero-image-wrap img {
-  width: 100%; height: 100%; object-fit: cover; opacity: 0.55;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.92; /* FIXED: was 0.55 — image now fully visible */
   transition: transform 8s ease;
 }
 .lux-hero:hover .lux-hero-image-wrap img { transform: scale(1.04); }
-.lux-hero-img-placeholder {
-  width: 100%; height: 100%; min-height: 92vh;
-  background: linear-gradient(135deg, #1A1410 0%, #2C2318 30%, #1E2A1A 65%, #0D1A0F 100%);
-  display: flex; align-items: center; justify-content: center;
-}
-.lux-hero-img-placeholder-text {
-  font-family: var(--font-serif); font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
-  color: rgba(255,255,255,0.18); font-weight: 300;
-  border: 0.5px solid rgba(255,255,255,0.08); padding: 12px 28px;
-}
+.lux-hero-img-placeholder { width: 100%; height: 100%; min-height: 92vh; background: linear-gradient(135deg, #1A1410 0%, #2C2318 30%, #1E2A1A 65%, #0D1A0F 100%); display: flex; align-items: center; justify-content: center; }
+.lux-hero-img-placeholder-text { font-family: var(--font-serif); font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.18); font-weight: 300; border: 0.5px solid rgba(255,255,255,0.08); padding: 12px 28px; }
+
+/* FIXED OVERLAY: lighter gradient that reveals the image on the right,
+   strong only on the left-bottom where the text lives */
 .lux-hero-overlay {
   position: absolute; inset: 0;
   background:
-    linear-gradient(to right, rgba(10,8,6,0.85) 0%, rgba(10,8,6,0.50) 55%, rgba(10,8,6,0.20) 100%),
-    linear-gradient(to bottom, rgba(10,8,6,0.10) 0%, rgba(10,8,6,0.65) 100%);
+    linear-gradient(to right,
+      rgba(8,6,4,0.82) 0%,
+      rgba(8,6,4,0.55) 40%,
+      rgba(8,6,4,0.15) 65%,
+      rgba(8,6,4,0.02) 100%
+    ),
+    linear-gradient(to bottom,
+      rgba(8,6,4,0.02) 0%,
+      rgba(8,6,4,0.02) 55%,
+      rgba(8,6,4,0.50) 100%
+    );
 }
-.lux-hero-rule {
-  position: absolute; left: calc(50% - 520px); top: 14%;
-  width: 0.5px; height: 68%;
-  background: linear-gradient(to bottom, transparent, var(--lux-gold-lt) 30%, var(--lux-gold-lt) 70%, transparent);
-  opacity: 0.30;
-}
-.lux-hero-content {
-  position: relative; z-index: 2;
-  max-width: 1100px; margin: 0 auto; padding: 0 80px;
-  min-height: 92vh; display: flex; flex-direction: column; justify-content: center; gap: 0;
-}
+
+.lux-hero-rule { position: absolute; left: calc(50% - 520px); top: 14%; width: 0.5px; height: 68%; background: linear-gradient(to bottom, transparent, var(--lux-gold-lt) 30%, var(--lux-gold-lt) 70%, transparent); opacity: 0.30; }
+.lux-hero-content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 0 80px; min-height: 92vh; display: flex; flex-direction: column; justify-content: center; gap: 0; }
 .lux-hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; animation: luxFadeUp 0.7s ease 0.1s both; }
 .lux-hero-eyebrow-line { width: 40px; height: 0.5px; background: var(--lux-gold-lt); opacity: 0.7; }
 .lux-hero-eyebrow-text { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--lux-gold-lt); font-weight: 400; }
-.lux-hero-title { font-family: var(--font-serif); font-weight: 300; font-size: clamp(2.8rem, 5.5vw, 5rem); color: #F5EFE6; line-height: 1.08; letter-spacing: 0.01em; max-width: 620px; margin-bottom: 24px; animation: luxFadeUp 0.7s ease 0.2s both; }
+
+/* FIXED: stronger text shadow so title pops on partially-revealed image */
+.lux-hero-title {
+  font-family: var(--font-serif); font-weight: 300;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  color: #F5EFE6; line-height: 1.08; letter-spacing: 0.01em;
+  max-width: 620px; margin-bottom: 24px;
+  animation: luxFadeUp 0.7s ease 0.2s both;
+  text-shadow: 0 2px 32px rgba(0,0,0,0.70), 0 1px 6px rgba(0,0,0,0.50);
+}
 .lux-hero-title em { font-style: italic; color: var(--lux-gold-lt); }
-.lux-hero-subtitle { font-size: 13.5px; font-weight: 300; letter-spacing: 0.05em; color: rgba(245,239,230,0.58); max-width: 380px; line-height: 1.85; margin-bottom: 52px; animation: luxFadeUp 0.7s ease 0.3s both; }
+
+/* FIXED: subtitle opacity raised so it reads clearly */
+.lux-hero-subtitle {
+  font-size: 13.5px; font-weight: 300; letter-spacing: 0.05em;
+  color: rgba(245,239,230,0.88);
+  max-width: 380px; line-height: 1.85; margin-bottom: 52px;
+  animation: luxFadeUp 0.7s ease 0.3s both;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.55);
+}
+
 .lux-hero-meta { display: flex; align-items: center; animation: luxFadeUp 0.7s ease 0.4s both; }
-.lux-hero-meta-item { display: flex; flex-direction: column; gap: 5px; padding: 0 32px; border-right: 0.5px solid rgba(245,239,230,0.12); }
+.lux-hero-meta-item { display: flex; flex-direction: column; gap: 5px; padding: 0 32px; border-right: 0.5px solid rgba(245,239,230,0.14); }
 .lux-hero-meta-item:first-child { padding-left: 0; }
 .lux-hero-meta-item:last-child { border-right: none; }
-.lux-hero-meta-num { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 300; color: var(--lux-gold-lt); line-height: 1; }
-.lux-hero-meta-label { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,239,230,0.38); font-weight: 300; }
+.lux-hero-meta-num { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 300; color: var(--lux-gold-lt); line-height: 1; text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
+.lux-hero-meta-label { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,239,230,0.55); font-weight: 300; }
 .lux-hero-scroll { position: absolute; bottom: 40px; left: 80px; z-index: 2; display: flex; align-items: center; gap: 12px; animation: luxFadeUp 0.7s ease 0.6s both; }
 .lux-hero-scroll-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lux-gold); opacity: 0.6; animation: luxPulse 2s ease infinite; }
-.lux-hero-scroll-text { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,239,230,0.32); font-weight: 300; }
+.lux-hero-scroll-text { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,239,230,0.40); font-weight: 300; }
 
 /* ── INTRO BAND ───────────────────────────────────────────── */
 .lux-intro-band { background: var(--lux-bg-warm); border-top: 0.5px solid var(--lux-rule); border-bottom: 0.5px solid var(--lux-rule); padding: 64px 80px; }
@@ -176,40 +169,22 @@ a { text-decoration: none; color: inherit; }
 /* ── PRODUCTS ─────────────────────────────────────────────── */
 .lux-products { background: var(--lux-bg); padding: 0 80px 80px; }
 .lux-products-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 3px; }
-
-.lux-product {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 460px; border: 0.5px solid var(--lux-rule);
-  background: var(--lux-surface); overflow: hidden;
-  transition: box-shadow 0.3s ease;
-}
+.lux-product { display: grid; grid-template-columns: 1fr 1fr; min-height: 460px; border: 0.5px solid var(--lux-rule); background: var(--lux-surface); overflow: hidden; transition: box-shadow 0.3s ease; }
 .lux-product:hover { box-shadow: 0 12px 48px rgba(0,0,0,0.08); }
-
-/* Reverse: flip column order for alternating layout */
 .lux-product.reverse .lux-product-img-wrap { order: 2; }
 .lux-product.reverse .lux-product-content { order: 1; }
-
 .lux-product-img-wrap { position: relative; background: var(--lux-bg-warm); overflow: hidden; }
 .lux-product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
 .lux-product:hover .lux-product-img-wrap img { transform: scale(1.04); }
-
-.lux-product-img-placeholder {
-  width: 100%; height: 100%; min-height: 420px;
-  background: linear-gradient(135deg, #EDE8E0 0%, #DDD6C8 100%);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
-  position: relative;
-}
+.lux-product-img-placeholder { width: 100%; height: 100%; min-height: 420px; background: linear-gradient(135deg, #EDE8E0 0%, #DDD6C8 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; position: relative; }
 .lux-product-img-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(184,150,90,0.08) 0%, transparent 70%); }
 .lux-product-img-icon { font-size: 2.2rem; opacity: 0.35; position: relative; z-index: 1; }
 .lux-product-img-label { font-family: var(--font-serif); font-size: 9.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--lux-text-muted); font-weight: 400; position: relative; z-index: 1; }
 .lux-product-img-hint { font-size: 9px; color: rgba(133,126,118,0.55); font-weight: 300; position: relative; z-index: 1; text-align: center; line-height: 1.6; }
-
 .lux-product-num { position: absolute; bottom: 20px; right: 20px; font-family: var(--font-serif); font-size: 4rem; font-weight: 300; color: rgba(0,0,0,0.06); line-height: 1; user-select: none; }
 .lux-product.reverse .lux-product-num { right: auto; left: 20px; }
-
 .lux-product-content { padding: 48px 48px; display: flex; flex-direction: column; justify-content: center; gap: 18px; position: relative; }
 .lux-product-content::before { content: ''; position: absolute; top: 0; left: 48px; right: 48px; height: 1.5px; background: linear-gradient(90deg, var(--lux-gold), transparent); opacity: 0.30; }
-
 .lux-product-tag { font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lux-gold); font-weight: 400; display: inline-flex; align-items: center; gap: 8px; }
 .lux-product-tag::before { content: ''; display: inline-block; width: 16px; height: 0.5px; background: var(--lux-gold); opacity: 0.7; }
 .lux-product-name { font-family: var(--font-serif); font-size: clamp(1.45rem, 2vw, 1.9rem); font-weight: 300; color: var(--lux-text); line-height: 1.15; }
@@ -376,9 +351,9 @@ html, body { overflow-x: hidden; max-width: 100%; }
 <!-- HERO -->
 <section class="lux-hero">
   <div class="lux-hero-image-wrap">
-      <img src="https://livingeco.github.io/assets/images/Bathroom_swap_hero_image.jpeg" alt="Luxury sustainable bathroom">
+    <img src="https://livingeco.github.io/assets/images/Bathroom_swap_hero_image.jpeg" alt="Luxury sustainable bathroom">
     <div class="lux-hero-img-placeholder">
-      <span class="lux-hero-img-placeholder-text">Hero Landscape Image — Replace This</span>
+      <span class="lux-hero-img-placeholder-text">Hero Landscape Image</span>
     </div>
   </div>
   <div class="lux-hero-overlay"></div>
@@ -420,7 +395,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
     </div>
     <div class="lux-intro-right">
       <p>Most people think about the kitchen first when going zero-waste: reusable bags, glass jars, bamboo utensils. But the bathroom is quietly one of the biggest sources of single-use plastic in the home.</p>
-      <p>Think about everything you go through in a year: shampoo bottles, conditioner bottles, face wash, razors, cotton pads, toothbrushes, deodorant sticks. Nearly all of it comes in plastic, and almost none of it gets recycled.</p>
+      <p>Think about everything in a bathroom that gets thrown away: shower puffs, plastic bath brushes, PVC curtains, disposable razors, liquid soap bottles, deodorant sticks. Nearly all of it comes in plastic, and almost none of it gets recycled.</p>
       <p>The good news? The bathroom is also one of the easiest rooms to overhaul. Most swaps cost the same as or less than what you are already buying, and many of them actually work better.</p>
       <div class="lux-intro-callout">
         <p>You don't need to do all of them at once. Start with one. When you run out of your current product, swap it for the eco version. That's it.</p>
@@ -445,54 +420,56 @@ html, body { overflow-x: hidden; max-width: 100%; }
   <div class="lux-products-inner">
 
     <!-- 01 image LEFT -->
+        <!-- 01 image LEFT -->
     <article class="lux-product">
       <div class="lux-product-img-wrap">
-        <!-- <img src="bamboo-toothbrush.jpg" alt="Bamboo Toothbrush"> -->
+        <!-- <img src="bamboo-bath-brush.jpg" alt="Bamboo Bath and Body Brush"> -->
         <div class="lux-product-img-placeholder">
-          <span class="lux-product-img-icon">🪥</span>
+          <span class="lux-product-img-icon">🪣</span>
           <span class="lux-product-img-label">Product Image</span>
-          <span class="lux-product-img-hint">Replace with bamboo toothbrush photo</span>
+          <span class="lux-product-img-hint">Replace with bamboo bath brush photo</span>
         </div>
         <span class="lux-product-num">01</span>
       </div>
       <div class="lux-product-content">
-        <span class="lux-product-tag">Daily Essential</span>
-        <h3 class="lux-product-name">Bamboo Toothbrush</h3>
-        <p class="lux-product-replace">Replacing: <span>Plastic toothbrush</span></p>
-        <p class="lux-product-desc">The average person uses 300 plastic toothbrushes in their lifetime and almost none of them ever decompose. Bamboo toothbrushes have a biodegradable handle and work just as well as plastic ones. Simply remove the bristles before composting the handle.</p>
+        <span class="lux-product-tag">Shower Essential</span>
+        <h3 class="lux-product-name">Bamboo Bath and Body Brush</h3>
+        <p class="lux-product-replace">Replacing: <span>Plastic-handled bath brush or loofah</span></p>
+        <p class="lux-product-desc">Most shower brushes have plastic handles and synthetic bristles that shed microplastics directly into the water supply every time you use them. A bamboo bath brush with natural bristles is fully biodegradable, gentle on skin, and doubles as a dry-brushing tool to improve circulation before you step in.</p>
         <div class="lux-product-details">
-          <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">Look for BPA-free nylon bristles. Replace every 3 months, just like a regular toothbrush.</p></div>
-          <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">Saves about 4 plastic toothbrushes per year, per person.</p></div>
+          <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">Hang it to dry after each use. Natural bristles last longer when they're not sitting in a pool of water.</p></div>
+          <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">Eliminates microplastic shedding with every shower. One brush lasts 1 to 2 years or more.</p></div>
         </div>
         <div class="lux-product-footer">
-          <p class="lux-product-tagline">One of the simplest swaps you will ever make.</p>
+          <p class="lux-product-tagline">Better for your skin. Better for the drain.</p>
           <a href="#" class="lux-shop-btn">Shop Now</a>
         </div>
       </div>
     </article>
 
     <!-- 02 image RIGHT -->
+        <!-- 02 image RIGHT -->
     <article class="lux-product reverse">
       <div class="lux-product-img-wrap">
-        <!-- <img src="shampoo-bar.jpg" alt="Shampoo Bar"> -->
+        <!-- <img src="natural-loofah.jpg" alt="Natural Loofah"> -->
         <div class="lux-product-img-placeholder">
-          <span class="lux-product-img-icon">🧴</span>
+          <span class="lux-product-img-icon">🌾</span>
           <span class="lux-product-img-label">Product Image</span>
-          <span class="lux-product-img-hint">Replace with shampoo bar photo</span>
+          <span class="lux-product-img-hint">Replace with natural loofah photo</span>
         </div>
         <span class="lux-product-num">02</span>
       </div>
       <div class="lux-product-content">
-        <span class="lux-product-tag">Hair Care</span>
-        <h3 class="lux-product-name">Shampoo Bar and Conditioner Bar</h3>
-        <p class="lux-product-replace">Replacing: <span>Plastic shampoo and conditioner bottles</span></p>
-        <p class="lux-product-desc">Over 550 million shampoo bottles end up in landfill every year. A shampoo bar lasts as long as 2 to 3 bottles, has zero plastic packaging, and is compact enough to take anywhere. Many people find their hair actually improves once it adjusts.</p>
+        <span class="lux-product-tag">Body Care</span>
+        <h3 class="lux-product-name">Natural Loofah</h3>
+        <p class="lux-product-replace">Replacing: <span>Plastic shower puff or synthetic sponge</span></p>
+        <p class="lux-product-desc">The colourful plastic shower puffs found in nearly every bathroom are made from nylon mesh that sheds microplastics with every wash and is impossible to recycle. A natural loofah is actually a plant: the dried fibrous interior of a gourd. It is 100% compostable, naturally antibacterial, and exfoliates far more effectively than any plastic puff.</p>
         <div class="lux-product-details">
-          <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">Give your hair a 2 to 3 week transition period. A diluted apple cider vinegar rinse helps in hard water areas.</p></div>
-          <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">Replaces 4 to 6 plastic bottles per year.</p></div>
+          <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">Rinse thoroughly after each use and let it dry outside the shower. Replace every 3 to 4 weeks, then compost the old one.</p></div>
+          <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">Removes a major source of daily microplastic pollution from your shower.</p></div>
         </div>
         <div class="lux-product-footer">
-          <p class="lux-product-tagline">The biggest visual change to your shower shelf.</p>
+          <p class="lux-product-tagline">Grown from the earth. Returns to it too.</p>
           <a href="#" class="lux-shop-btn">Shop Now</a>
         </div>
       </div>
@@ -501,7 +478,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 03 image LEFT -->
     <article class="lux-product">
       <div class="lux-product-img-wrap">
-        <!-- <img src="safety-razor.jpg" alt="Safety Razor"> -->
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🪒</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -526,27 +502,28 @@ html, body { overflow-x: hidden; max-width: 100%; }
     </article>
 
     <!-- 04 image RIGHT -->
+        <!-- 04 image RIGHT -->
     <article class="lux-product reverse">
       <div class="lux-product-img-wrap">
-        <!-- <img src="cotton-rounds.jpg" alt="Reusable Cotton Rounds"> -->
+        <!-- <img src="organic-shower-curtain.jpg" alt="Plastic-Free Shower Curtain"> -->
         <div class="lux-product-img-placeholder">
-          <span class="lux-product-img-icon">🌸</span>
+          <span class="lux-product-img-icon">🚿</span>
           <span class="lux-product-img-label">Product Image</span>
-          <span class="lux-product-img-hint">Replace with reusable rounds photo</span>
+          <span class="lux-product-img-hint">Replace with shower curtain photo</span>
         </div>
         <span class="lux-product-num">04</span>
       </div>
       <div class="lux-product-content">
-        <span class="lux-product-tag">Skincare</span>
-        <h3 class="lux-product-name">Reusable Cotton Rounds</h3>
-        <p class="lux-product-replace">Replacing: <span>Disposable cotton pads</span></p>
-        <p class="lux-product-desc">Cotton pads are used for about 30 seconds and then thrown away. Reusable pads made from organic cotton or bamboo do the exact same job, wash beautifully, and last for years. They come in mesh laundry bags for easy washing.</p>
+        <span class="lux-product-tag">Bathroom Decor</span>
+        <h3 class="lux-product-name">Plastic-Free Shower Curtain</h3>
+        <p class="lux-product-replace">Replacing: <span>PVC or vinyl shower curtain</span></p>
+        <p class="lux-product-desc">Standard PVC shower curtains release volatile organic compounds (VOCs) into the air of your bathroom, especially when new. They are not recyclable and end up in landfill. Organic cotton, linen, or PEVA shower curtains contain no harmful chemicals, look far more elegant, and can be machine-washed when they need refreshing.</p>
         <div class="lux-product-details">
-          <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">Keep a small wet bag next to your sink to collect used pads between washes.</p></div>
-          <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">Replaces 700 to 1000 or more disposable pads per year.</p></div>
+          <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">Wash monthly on a gentle cycle. A hemp or linen curtain will actually get softer and more beautiful over time.</p></div>
+          <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">Removes a large source of indoor chemical exposure and replaces a non-recyclable plastic item.</p></div>
         </div>
         <div class="lux-product-footer">
-          <p class="lux-product-tagline">A game changer for your skincare routine.</p>
+          <p class="lux-product-tagline">The upgrade your bathroom did not know it needed.</p>
           <a href="#" class="lux-shop-btn">Shop Now</a>
         </div>
       </div>
@@ -555,7 +532,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 05 image LEFT -->
     <article class="lux-product">
       <div class="lux-product-img-wrap">
-        <!-- <img src="refillable-deodorant.jpg" alt="Refillable Deodorant"> -->
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🌿</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -582,7 +558,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 06 image RIGHT -->
     <article class="lux-product reverse">
       <div class="lux-product-img-wrap">
-        <!-- <img src="solid-cleanser.jpg" alt="Solid Facial Cleanser"> -->
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">✨</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -609,7 +584,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 07 image LEFT -->
     <article class="lux-product">
       <div class="lux-product-img-wrap">
-        <!-- <img src="bamboo-hairbrush.jpg" alt="Bamboo Hairbrush"> -->
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">💆</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -636,7 +610,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 08 image RIGHT -->
     <article class="lux-product reverse">
       <div class="lux-product-img-wrap">
-        <!-- <img src="bar-soap.jpg" alt="Bar Soap"> -->
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🧼</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -663,7 +636,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 09 image LEFT -->
     <article class="lux-product">
       <div class="lux-product-img-wrap">
-        <!-- <img src="menstrual-cup.jpg" alt="Menstrual Cup"> -->
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🌙</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -690,7 +662,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 10 image RIGHT -->
     <article class="lux-product reverse">
       <div class="lux-product-img-wrap">
-        <!-- <img src="bamboo-toilet-paper.jpg" alt="Bamboo Toilet Paper"> -->
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🪴</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -725,11 +696,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
       <h2 class="lux-start-heading">Where to<br><em>begin</em></h2>
     </div>
     <div>
-      <p class="lux-start-desc">If you are just beginning your zero-waste bathroom journey, start with the items you run out of first. Replace each one as it empties rather than throwing everything away at once.</p>
+      <p class="lux-start-desc">If you are just beginning your zero-waste bathroom journey, start with the items you use most and replace them one at a time as they run out. Small changes compound into something significant.</p>
       <ul class="lux-start-list">
         <li class="lux-start-item"><span class="lux-start-item-num">I</span><div class="lux-start-item-body"><strong>Bar Soap</strong><span>Easiest swap, costs less, no adjustment needed.</span></div></li>
-        <li class="lux-start-item"><span class="lux-start-item-num">II</span><div class="lux-start-item-body"><strong>Bamboo Toothbrush</strong><span>Direct replacement, zero learning curve.</span></div></li>
-        <li class="lux-start-item"><span class="lux-start-item-num">III</span><div class="lux-start-item-body"><strong>Reusable Cotton Rounds</strong><span>A game changer for your skincare routine.</span></div></li>
+        <li class="lux-start-item"><span class="lux-start-item-num">II</span><div class="lux-start-item-body"><strong>Natural Loofah</strong><span>Direct replacement for your shower puff, compostable in weeks.</span></div></li>
+        <li class="lux-start-item"><span class="lux-start-item-num">III</span><div class="lux-start-item-body"><strong>Bamboo Bath Brush</strong><span>A direct swap that also upgrades your shower routine.</span></div></li>
         <li class="lux-start-item"><span class="lux-start-item-num">IV</span><div class="lux-start-item-body"><strong>Shampoo Bar</strong><span>Biggest visual impact on plastic reduction.</span></div></li>
         <li class="lux-start-item"><span class="lux-start-item-num">V</span><div class="lux-start-item-body"><strong>Safety Razor</strong><span>Upfront cost pays off within 2 to 3 months.</span></div></li>
       </ul>
