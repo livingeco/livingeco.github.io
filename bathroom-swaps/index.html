@@ -203,6 +203,16 @@ a { text-decoration: none; color: inherit; }
 .lux-shop-btn::after { content: '→'; font-size: 11px; transition: transform 0.2s; }
 .lux-shop-btn:hover { background: var(--lux-gold); border-color: var(--lux-gold); color: #1A1714; }
 .lux-shop-btn:hover::after { transform: translateX(4px); }
+/* Secondary outlined shop button for dual-button products */
+.lux-shop-btn-outline { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--lux-text); font-family: var(--font-sans); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 400; padding: 13px 24px; border: 0.5px solid var(--lux-text); transition: background 0.25s, color 0.25s, border-color 0.25s; white-space: nowrap; flex-shrink: 0; }
+.lux-shop-btn-outline::after { content: '→'; font-size: 11px; transition: transform 0.2s; }
+.lux-shop-btn-outline:hover { background: var(--lux-gold); border-color: var(--lux-gold); color: #1A1714; }
+.lux-shop-btn-outline:hover::after { transform: translateX(4px); }
+/* Dual button wrapper */
+.lux-shop-btns { display: flex; flex-wrap: wrap; gap: 8px; flex-shrink: 0; }
+/* Footer layout for dual-button: stack tagline above buttons */
+.lux-product-footer.dual { flex-direction: column; align-items: flex-start; gap: 12px; }
+.lux-product-footer.dual .lux-shop-btns { width: 100%; }
 
 /* ── WHERE TO START ───────────────────────────────────────── */
 .lux-start { background: var(--lux-bg-dark); padding: 80px; position: relative; overflow: hidden; }
@@ -453,7 +463,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
         <!-- 02 image RIGHT -->
     <article class="lux-product reverse">
       <div class="lux-product-img-wrap">
-       <img src="https://livingeco.github.io/assets/images/Natural_Loofah.jpeg" alt="Natural Loofah">
+        <img src="https://livingeco.github.io/assets/images/Natural_Loofah.jpeg" alt="Natural Loofah">
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🌾</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -480,8 +490,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 03 image LEFT -->
     <article class="lux-product">
       <div class="lux-product-img-wrap">
-	  <img src="https://livingeco.github.io/assets/images/Safety_razor.jpeg" alt="Safety Razor">
-        <div class="lux-product-img-placeholder">
+                <img src="https://livingeco.github.io/assets/images/Safety_razor.jpeg" alt="Safety Razor">
+<div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🪒</span>
           <span class="lux-product-img-label">Product Image</span>
           <span class="lux-product-img-hint">Replace with safety razor photo</span>
@@ -508,7 +518,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
         <!-- 04 image RIGHT -->
     <article class="lux-product reverse">
       <div class="lux-product-img-wrap">
-       <img src="https://livingeco.github.io/assets/images/Plastic-Free_Shower_Curtain.jpeg" alt="Plastic-Free Shower Curtain">
+        <img src="https://livingeco.github.io/assets/images/Plastic-Free_Shower_Curtain.jpeg" alt="Plastic-Free Shower Curtain">
         <div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🚿</span>
           <span class="lux-product-img-label">Product Image</span>
@@ -535,8 +545,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 05 image LEFT -->
     <article class="lux-product">
       <div class="lux-product-img-wrap">
-	  <img src="https://livingeco.github.io/assets/images/Refillable_deodorant.jpeg" alt="Refillable Deodorant">
-        <div class="lux-product-img-placeholder">
+                <img src="https://livingeco.github.io/assets/images/Refillable_deodorant.jpeg" alt="Refillable Deodorant">
+<div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">🌿</span>
           <span class="lux-product-img-label">Product Image</span>
           <span class="lux-product-img-hint">Replace with deodorant photo</span>
@@ -562,8 +572,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
     <!-- 06 image RIGHT -->
     <article class="lux-product reverse">
       <div class="lux-product-img-wrap">
-	  <img src="https://livingeco.github.io/assets/images/Ethique_Hydrating_Solid_Face.jpeg" alt="Solid Facial Cleanser">
-        <div class="lux-product-img-placeholder">
+                <img src="https://livingeco.github.io/assets/images/Ethique_Hydrating_Solid_Face.jpeg" alt="Solid Facial Cleanser">
+<div class="lux-product-img-placeholder">
           <span class="lux-product-img-icon">✨</span>
           <span class="lux-product-img-label">Product Image</span>
           <span class="lux-product-img-hint">Replace with solid cleanser photo</span>
@@ -605,9 +615,12 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">Clean your brush weekly by removing trapped hair and gently washing the base with diluted shampoo.</p></div>
           <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">One brush can last 5 to 10 or more years.</p></div>
         </div>
-        <div class="lux-product-footer">
+        <div class="lux-product-footer dual">
           <p class="lux-product-tagline">Buy once. Keep for a decade.</p>
-          <a href="#" class="lux-shop-btn">Shop Now</a>
+          <div class="lux-shop-btns">
+            <a href="#" class="lux-shop-btn">Shop Bamboo Brush</a>
+            <a href="#" class="lux-shop-btn-outline">Shop Stainless Brush</a>
+          </div>
         </div>
       </div>
     </article>
@@ -624,9 +637,9 @@ html, body { overflow-x: hidden; max-width: 100%; }
       </div>
       <div class="lux-product-content">
         <span class="lux-product-tag">Body Care</span>
-        <h3 class="lux-product-name">Bar Soap (Naked or Unwrapped)</h3>
+        <h3 class="lux-product-name">Bar Soap</h3>
         <p class="lux-product-replace">Replacing: <span>Liquid soap in plastic pump bottles</span></p>
-        <p class="lux-product-desc">Liquid soap uses up to 5 times more energy to produce than bar soap and comes in plastic that is rarely recycled. A simple, unwrapped bar of soap, or one wrapped in paper, is one of the easiest and cheapest swaps you can make.</p>
+        <p class="lux-product-desc">Liquid soap uses up to 5 times more energy to produce than bar soap and comes in plastic that is rarely recycled. A simple, package-free bar of soap is one of the easiest and cheapest swaps you can make.</p>
         <div class="lux-product-details">
           <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">A wooden or ceramic soap dish keeps the bar dry between uses. It will last much longer.</p></div>
           <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">Replaces 3 to 5 plastic pump bottles per year.</p></div>
@@ -657,9 +670,12 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <div class="lux-detail"><p class="lux-detail-label">Tip</p><p class="lux-detail-text">Menstrual cups have a learning curve, so give yourself 2 to 3 cycles to get comfortable. Period underwear is a great starting point.</p></div>
           <div class="lux-detail"><p class="lux-detail-label">Impact</p><p class="lux-detail-text">Potentially eliminates thousands of single-use items over a lifetime.</p></div>
         </div>
-        <div class="lux-product-footer">
+        <div class="lux-product-footer dual">
           <p class="lux-product-tagline">The highest-impact swap on this list.</p>
-          <a href="#" class="lux-shop-btn">Shop Now</a>
+          <div class="lux-shop-btns">
+            <a href="#" class="lux-shop-btn">Shop Menstrual Cup</a>
+            <a href="#" class="lux-shop-btn-outline">Shop Period Underwear</a>
+          </div>
         </div>
       </div>
     </article>
